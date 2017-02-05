@@ -1,0 +1,252 @@
+
+
+@font-face {
+    font-family: 'ostrich_sansmedium';
+    src: font-url('ostrich-regular-webfont.woff2') format('woff2'),
+         font-url('ostrich-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'ostrich_sansbold';
+    src: font-url('ostrichsans-bold-webfont.woff2') format('woff2'),
+         font-url('ostrichsans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'ostrich_sansheavy';
+    src: font-url('ostrichsans-heavy-webfont.woff2') format('woff2'),
+         font-url('ostrichsans-heavy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'ostrich_sanslight';
+    src: font-url('ostrichsans-light-webfont.woff2') format('woff2'),
+         font-url('ostrichsans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'ostrich_sansmedium';
+    src: font-url('ostrichsans-medium-webfont.woff2') format('woff2'),
+         font-url('ostrichsans-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'ostrich_sans_dashedmedium';
+    src: font-url('ostrichsansdashed-medium-webfont.woff2') format('woff2'),
+         font-url('ostrichsansdashed-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'ostrich_sans_roundedmedium';
+    src: font-url('ostrichsansrounded-medium-webfont.woff2') format('woff2'),
+         font-url('ostrichsansrounded-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'us_declarationregular';
+    src: font-url('usdeclaration-webfont.woff2') format('woff2'),
+         font-url('usdeclaration-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.declaration--text{
+  font-family: "us_declarationregular" !important;
+}
+.supporting--text{
+  font-family: "ostrich_sans_roundedmedium";
+/*font-family: 'Lora', 'Helvetica', 'Arial', sans-serif;*/
+  /*font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;*/
+/*text-transform: uppercase;*/
+}
+.supporting--text__nav{
+  font-size: 1.5em;
+}
+.declaration--text__home{
+ font-size: 3em;
+ line-height: 1.5em; 
+}
+.x2em{
+  font-size: 2em;
+}
+.bigger{
+  font-size: 1.2em;
+}
+.x1halfem{
+  font-size: 0.8em !important;
+}
+
+ul.nav--text li a{
+  font-size: 1.3em !important;
+}
+
+
+.pb0{
+  padding-bottom: 0 !important;
+}
+.pt0{
+  padding-top: 0 !important;
+}
+.mb0{
+  margin-bottom: 0 !important;
+}
+.pb15{
+  padding-bottom: 15px !important;
+}
+.pt15{
+  padding-bottom: 15px !important;
+}
+.mb15{
+  margin-bottom: 15px !important;
+}
+.mt15{
+  margin-bottom: 15px !important;
+}
+.pv15{
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+.pv5p{
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+}
+.pv10p{
+  padding-top: 10% !important;
+  padding-bottom: 10% !important;
+}
+.pv2em{
+  padding-top: 2em !important;
+  padding-bottom: 2em !important;
+}
+.pv30{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.mt30{
+  margin-top: 30px !important;
+}
+.pt30{
+  padding-top: 30px;
+}
+.mb30{
+  margin-bottom: 30px;
+}
+
+.mb64{
+  margin-bottom: 64px !important;
+}
+.mt64{
+  margin-top: 128px !important;
+}
+.mt0{
+  margin-top: 0 !important;
+}
+
+.tabs-container .tabs{
+  margin-bottom: 2.6em;
+}
+
+
+.text-center-sm{
+  text-align: center !important;
+}
+
+@media (min-width: 992px){
+  .text-center-sm{
+    text-align: left !important;
+  }
+}
+
+span.btn__text.toggle__txt{
+  font-size: 0.9em;
+  text-transform: none;
+}
+
+
+div.tab__title.btn{
+  /*width: 100px;*/
+  padding-left: 1.7em; 
+  padding-right: 1.7em;
+}
+
+
+@media (min-width: 767px){
+div.tab__title.btn{
+  /*width: 100px;*/
+  padding-left: 3em; 
+  padding-right: 3em;
+}
+}
+@media (min-width: 996px){
+  div.tab__title.btn{
+    /*width: 100px;*/
+    padding-left: 4.5em; 
+    padding-right: 4.5em;
+  }
+}
+
+
+
+
+.nav-module.right {
+  margin-right: 2% !important;
+}
+
+
+.text__underline{
+  text-decoration: underline;
+  font-weight: 300 !important;
+}
+ul.footer__navigation li a span{
+  text-transform: capitalize;
+}
+
+@media (max-width: 767px){
+.section--overlap:not(:first-child) {
+  margin-top: 0;
+}
+}
+
+.capitalize{
+  text-transform: capitalize !important;
+}
