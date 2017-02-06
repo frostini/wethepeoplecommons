@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get '/petition' => 'home#petition_page', as: :petitions 
-  get '/creations' => 'home#creations_page', as: :creations
+  get '/showcase' => 'home#showcase', as: :showcase
+  get '/request' => 'home#help_request', as: :help_request
+  get '/faqs' => 'home#faqs', as: :faqs
+  get '/volunteer' => 'home#volunteer_profile', as: :volunteer
 
   # Example of regular route:
 

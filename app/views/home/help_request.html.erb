@@ -1,0 +1,135 @@
+<section class="height-50 bg--dark imagebg page-title page-title--animate" data-overlay="5">
+    <div class="background-image-holder">
+        <%=image_tag("idea_flow.jpg")%>
+    </div>
+    <div class="container pos-vertical-center">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                <h2>Request Help</h2>
+                <p class="lead">Pillar is a team of passionate designers, developers and artists working in print and digital. We collaborate with clients to establish bold, effective identities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="elements-forms">
+    <div class="container">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="elements--title">
+                                <h4>1. Personal Information</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>First Name:</label>
+                            <input type="text" name="first_name" placeholder="Some" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Last Name:</label>
+                            <input type="text" name="last_name" placeholder="Person" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Title</label>
+                            <input type="title" name="title" placeholder="Example: Director of Outreach" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Phone Number:</label>
+                            <input type="phone_number" name="phone_number" placeholder="Example: (434) 345-3342" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                    <div class="row">                    
+                        <div class="col-xs-12 text-center">
+                            <div class="elements--title">
+                                <h4>2. Organization Information</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Organization Name:</label>
+                            <input type="text" name="org_name" placeholder="Org Name" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>URL:</label>
+                            <input type="url" name="url" placeholder="www.wethepeople.org" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <hr>
+                </div>
+            </div>
+            <div class="row text-center"> 
+                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h4>3. Request Information</h4>
+                        </div>
+                        <div class="col-xs-12">
+                            <label>Description of Initiative or Project:</label>
+                            <textarea class="" cols="10" rows="2" placeholder="Enter project description..."></textarea>
+                        </div>
+                        <div class="col-xs-12">
+                            <label>Purpose of initiative or project:</label>
+                            <textarea class="" cols="10" rows="2" placeholder="Enter project purpose..."></textarea>
+                        </div>
+                        <div class="col-xs-12">
+                            <label>What sort of help do you need ?</label>
+                            <input id="select-to" type="skills" placeholder="Select up to 4 Skills" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <hr>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="">4. Level of urgency</h4>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-radio">
+                                <div class="inner"></div>
+                                <input type="radio" />
+                            </div>
+                            <label>ASAP</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-radio">
+                                <div class="inner"></div>
+                                <input type="radio" />
+                            </div>
+                            <label>Soon</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-radio">
+                                <div class="inner"></div>
+                                <input type="radio" />
+                            </div>
+                            <label>Eventually</label>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+            <div class="row mt48">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <button class="btn btn--primary" type="submit">Request Help</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<% content_for :javascript do %>
+    <% javascript_include_tag 'selectize_skills' %>
+<% end %>

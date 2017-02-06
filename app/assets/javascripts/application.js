@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require selectize.min
 //= require easypiechart.min
 //= require isotope.min
 //= require lightbox.min

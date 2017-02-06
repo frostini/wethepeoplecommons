@@ -36,33 +36,52 @@
   <a id="top"></a>
   <div class="loader"></div>
   <nav class="transition--fade">
-    <div class="nav-bar" data-fixed-at="200">
-      <div class="nav-module logo-module left">
-        <a href="index.html" class="declaration--text">
-          WeThePeople<span class="supporting--text supporting--text__nav "> commons</span>
-        </a>
-      </div>
-      <div class="nav-module menu-module left">
-        <ul class="menu nav--text">
-          <li>
-            <%=
-            link_to_unless(action_name == "index", "About Us", root_path, class: "") do |name|
-              link_to( name, "#about_us", class: "scroll-to")
-            end
-            %>
-          </li>
-          <li>
-            <%= link_to "Our Creations", creations_path %>
-          </li>
-          <li>
-            <%=link_to "The Petition", petitions_path %>
-          </li>
-          <li>
-            <a href="#">
-              The Store
-            </a>
-          </li>
-        </ul>
+      <div class="nav-bar" data-fixed-at="200">
+          <div class="nav-module logo-module left">
+            <%=link_to root_path  do %>
+              <span class="declaration--text">WeThePeople</span><span class="supporting--text supporting--text__nav "> commons</span>
+            <% end %>
+          </div>
+          <div class="nav-module menu-module left">
+              <ul class="menu nav--text">
+                <li>
+                <%=
+                   link_to_unless(action_name == "index", "Home", root_path, class: "") do |name|
+                     link_to( name, "#about_us", class: "scroll-to")
+                   end
+                %>
+                </li>
+                  <li>
+                    <%= link_to help_request_path do%>
+                      <span>Get Help</span>
+                    <% end %>
+
+                  </li>
+                  <li>
+                      <%=link_to volunteer_path do %> 
+                        <span>Volunteer</span>
+                      <%end%>
+                  </li>
+                  <li>
+                      <%=link_to showcase_path do %> 
+                        <span>Showcase</span>
+                      <%end%>
+                  </li>
+                  <li>
+                      <a href="#">
+                          The Store
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="nav-module right ">
+              <a class="btn btn--xs btn--primary mb--1" href="#">
+                  <span class="btn__text">
+                      Donate
+                  </span>
+              </a>
+          </div>
+          <!--end nav module-->
       </div>
       <div class="nav-module right ">
         <a class="btn btn--xs btn--primary mb--1 dbox-donation-button" href="https://donorbox.org/wethepeoplecommons?recurring=true">
@@ -189,5 +208,9 @@
         </div>
       </footer>
     </div>
+
+  <%= yield :javascript %>
+
   </body>
-  </html>
+</html>
+
