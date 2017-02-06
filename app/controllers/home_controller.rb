@@ -4,7 +4,11 @@ class HomeController < ApplicationController
   end
   def petition_page
   end
-  def creations_page
+  def showcase
   end
-  
+  def help_request
+  end
+  def volunteer_profile
+  end
+    
 end
