@@ -35,7 +35,7 @@
 <body class="scroll-assist">
   <a id="top"></a>
   <div class="loader"></div>
-  <nav class="transition--fade">
+  <nav class="">
       <div class="nav-bar" data-fixed-at="200">
           <div class="nav-module logo-module left">
             <%=link_to root_path  do %>
@@ -75,20 +75,13 @@
               </ul>
           </div>
           <div class="nav-module right ">
-              <a class="btn btn--xs btn--primary mb--1" href="#">
-                  <span class="btn__text">
-                      Donate
-                  </span>
-              </a>
+            <a class="btn btn--xs btn--primary dbox-donation-button" href="https://donorbox.org/wethepeoplecommons?recurring=true">
+              <span class="btn__text">
+                Donate
+              </span>
+            </a>
           </div>
           <!--end nav module-->
-      </div>
-      <div class="nav-module right ">
-        <a class="btn btn--xs btn--primary mb--1 dbox-donation-button" href="https://donorbox.org/wethepeoplecommons?recurring=true">
-          <span class="btn__text">
-            Donate
-          </span>
-        </a>
       </div>
       <!--end nav module-->
     </div>
@@ -97,7 +90,7 @@
       <i class="icon-Align-Right icon icon--sm"></i>
     </div>
   </nav>
-  <div class="main-container transition--fade">
+  <div class="main-container ">
     <%= yield %>
     <footer class="bg--dark footer-4">
       <div class="container">
@@ -114,15 +107,20 @@
                 end %>
               </li>
               <li>
-                <%= link_to creations_path do%>
-                <span>Our Creations</span>
+                <%= link_to help_request_path do%>
+                  <span>Get Help</span>
                 <% end %>
 
               </li>
               <li>
-                <%=link_to petitions_path do %>
-                  <span>The Petition</span>
-                <%end%>
+                  <%=link_to volunteer_path do %> 
+                    <span>Volunteer</span>
+                  <%end%>
+              </li>
+              <li>
+                  <%=link_to showcase_path do %> 
+                    <span>Showcase</span>
+                  <%end%>
               </li>
               <li>
                 <a href="#">
