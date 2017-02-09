@@ -18,5 +18,6 @@
  *= require owl.carousel
  *= require socicon
  *= require base_styling
+ *= require font-awesome.min
  *= require custom
  */
