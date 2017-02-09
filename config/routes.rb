@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/showcase' => 'home#showcase', as: :showcase
   get '/faqs' => 'home#faqs', as: :faqs
-  get '/request' => 'home#help_request', as: :help_request
-  
-  get '/volunteer' => 'home#volunteer_profile', as: :volunteer
+  get '/request' => 'requesters#new'
+
+  get '/volunteer' => 'volunteers#new'
 
   # Example of regular route:
 
