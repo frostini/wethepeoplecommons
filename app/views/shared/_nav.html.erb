@@ -1,0 +1,32 @@
+<nav>
+  <div class="nav-bar" data-fixed-at="200">
+    <div class="nav-module logo-module left">
+      <%=link_to root_path  do %>
+        <span class="declaration--text">WeThePeople</span><span class="supporting--text supporting--text__nav "> commons</span>
+      <% end %>
+    </div>
+    <div class="nav-module menu-module left">
+      <ul class="menu nav--text">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Get Help", help_request_path %></li>
+        <li><%=link_to "Volunteer", volunteer_path %></li>
+        <li><%=link_to "Showcase", showcase_path %></li>
+        <li>
+            <a href="https://store.wethepeoplecommons.org" target="_blank">
+                The Store
+            </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-module right ">
+      <a class="btn btn--xs btn--primary dbox-donation-button" href="https://donorbox.org/wethepeoplecommons?recurring=true">
+        <span class="btn__text">
+          Donate
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="nav-mobile-toggle visible-sm visible-xs">
+    <i class="icon-Align-Right icon icon--sm"></i>
+  </div>
+</nav>
