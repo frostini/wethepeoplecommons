@@ -1,22 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: { sessions: 'admins/sessions' }
-
-    # Rails.application.routes.draw do
-    #   devise_for :users, controllers: {
-    #     sessions: 'users/sessions'
-    #   }
-    # end
-    
-  # devise_for :admins
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
   root 'home#index'
-  get '/petition' => 'home#petition_page', as: :petitions 
   get '/showcase' => 'home#showcase', as: :showcase
-  get '/request' => 'home#help_request', as: :help_request
   get '/faqs' => 'home#faqs', as: :faqs
+  get '/request' => 'home#help_request', as: :help_request
+  
   get '/volunteer' => 'home#volunteer_profile', as: :volunteer
 
   # Example of regular route:
