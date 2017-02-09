@@ -8,8 +8,28 @@
     <div class="nav-module menu-module left">
       <ul class="menu nav--text">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Get Help", help_request_path %></li>
-        <li><%=link_to "Volunteer", volunteer_path %></li>
+        <li>
+          <%= link_to "Get Help", help_request_path %>
+          <ul>
+            <li>
+              <a href="#">Request Form</a>
+            </li>
+            <li>
+              <a href="#">View All Volunteers</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <%=link_to "Volunteer", volunteer_path %>
+          <ul>
+            <li>
+              <a href="#">Registration Form</a>
+            </li>
+            <li>
+              <a href="#">View All Requests</a>
+            </li>
+          </ul>
+        </li>
         <li><%=link_to "Showcase", showcase_path %></li>
         <li>
             <a href="https://store.wethepeoplecommons.org" target="_blank">
