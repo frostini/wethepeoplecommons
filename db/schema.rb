@@ -14,10 +14,12 @@
 ActiveRecord::Schema.define(version: 20170209214653) do
 
   create_table "visitors", force: :cascade do |t|
-    t.string "email", limit: 255, null: false
-    t.string "type",  limit: 255, null: false
+    t.string   "email",      limit: 255, null: false
+    t.string   "group",      limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "visitors", ["email", "type"], name: "index_visitors_on_email_and_type", unique: true, using: :btree
+  add_index "visitors", ["email", "group"], name: "index_visitors_on_email_and_group", unique: true, using: :btree
 
 end

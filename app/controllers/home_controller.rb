@@ -10,5 +10,5 @@ class HomeController < ApplicationController
   end
   def volunteer_profile
   end
-    
+
 end

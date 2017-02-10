@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/showcase' => 'home#showcase', as: :showcase
   get '/faqs' => 'home#faqs', as: :faqs
+
+  resources :visitors, only: [:create]
+
   get '/request' => 'requesters#new'
 
   get '/volunteer' => 'volunteers#new'

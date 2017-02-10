@@ -15,8 +15,8 @@
     </div>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-xs-12 text-center">
-        <%= render "request_modal"%>
-        <%= render "volunteer_modal"%>
+        <%= render partial: "request_modal" %>
+        <%= render partial: "volunteer_modal" %>
       </div>
     </div>
     <div class="row mt48">
@@ -60,14 +60,14 @@
         <div>
           <h4>1. Request Help</h4>
           <p>We achieved complete immersion in a human-centered design process.</p>
-          <%= render "request_modal"%>
+          <%#= render partial: "request_modal" %>
           <hr>
         </div>
 
         <div class="mt30">
           <h4>2. Contribute Skills</h4>
           <p>We achieved complete immersion in a human-centered design process.</p>
-          <%= render "volunteer_modal"%>
+          <%= render partial: "volunteer_modal" %>
           <hr>
         </div>
 

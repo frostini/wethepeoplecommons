@@ -1,4 +1,11 @@
+<a id="top"></a>
+<div class="loader"></div>
 <nav>
+  <% flash.each do |key, value| %>
+  <div class="flash alert-<%= key %> utility-bar text-center">
+    <h5><%= value %></h5>
+  </div>
+  <% end %>
   <div class="nav-bar" data-fixed-at="200">
     <div class="nav-module logo-module left">
       <%=link_to root_path  do %>

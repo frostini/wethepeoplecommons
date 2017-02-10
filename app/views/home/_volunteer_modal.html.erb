@@ -9,20 +9,18 @@
           <h4>Become a Volunteer</h4>
           <p>Wanna make a real impact? You are in the right place! Start by inputting your email so we know how to contact you when opportunites comes up.</p>
         </div>
-        <form
-            class=" form--center-submit-button"
-            action="http://mrareco.createsend.com/t/d/s/kieth/"
-            method="post"
-            id="subForm"
-            data-error="Please fill all fields correctly."
-            data-success="Thanks for signing up! Please check your inbox for confirmation email.">
-            <div class="input-with-icon">
-                <label for="fieldEmail">Email Address</label>
-                <i class="icon icon-Mail-2"></i>
-                <input class="validate-required validate-email" id="fieldEmail" name="cm-kieth-kieth" type="email" required/>
-            </div>
-            <button type="submit">Continue  <i class="fa fa-long-arrow-right color--white"></i></button>
-        </form>
+
+        <%= form_for Visitor.new, url: visitors_path, method: :post, html: {class: "form--center-submit-button"} do |f| %>
+          <%= f.hidden_field :type, value: "Volunteer" %>
+          <div class="input-with-icon">
+            <label for="fieldEmail">Email Address</label>
+            <i class="icon icon-Mail-2"></i>
+            <%= f.email_field :email, required: true, placeholder: "Email Address" %>
+          </div>
+          <%= f.button :submit, class: "btn" do %>
+            Continue  <i class="fa fa-long-arrow-right color--white"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
