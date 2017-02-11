@@ -13,7 +13,7 @@
 </section>
 <section class="elements-forms">
     <div class="container">
-      <%= form_tag volunteer_profiles_path, method: :post do |f| %>
+      <%= form_tag volunteer_profiles_path, method: :post, class: "form--square" do |f| %>
         <div class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
             <div class="row">
@@ -59,15 +59,15 @@
                   </div>
                   <div class="col-sm-12">
                       <label>Can you share a little about your self ? Experience volunteering or working with social causes ?</label>
-                      <%= text_area_tag "volunteer[bio]", nil, placeholder: "I love doing...", required: true %>
+                      <%= text_area_tag "volunteer[bio]", nil, placeholder: "I love doing...", required: true, size: "25x5" %>
                   </div>
                   <div class="col-sm-12">
                       <label>What kind of project would you like to help in ?</label>
-                      <%= text_area_tag "volunteer[interest]", nil, placeholder: "I would love to help with...", required: true %>
+                      <%= text_area_tag "volunteer[interest]", nil, placeholder: "I would love to help with...", required: true, size: "25x3" %>
                   </div>
                   <div class="col-xs-12">
                     <label>Can you tell us a bit about the skills you'd like to volunteer ?</label>
-                    <%= text_area_tag "volunteer[skills]", nil, col: 10, row: 2, placeholder: "Select up to 6 Skills", required: true, id: "select-to" %>
+                    <%= text_area_tag "volunteer[skills]", nil, size: "25x3", placeholder: "Select up to 6 Skills", required: true, id: "select-to" %>
                   </div>
               </div>
             </div>

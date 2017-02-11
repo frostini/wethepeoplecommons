@@ -13,7 +13,7 @@
 </section>
 <section class="elements-forms">
   <div class="container">
-    <%= form_tag requests_path, method: :post do |f| %>
+    <%= form_tag requests_path, method: :post, class: "form--square" do |f| %>
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
           <div class="row">
@@ -81,15 +81,15 @@
             </div>
             <div class="col-xs-12">
                 <label>Description of Initiative or Project:</label>
-                <%= text_area_tag "request[description]", nil, col: 10, row: 2, placeholder: "Enter project description...", required: true %>
+                <%= text_area_tag "request[description]", nil, size: "25x5", placeholder: "Enter project description...", required: true %>
             </div>
             <div class="col-xs-12">
                 <label>Purpose of initiative or project:</label>
-                <%= text_area_tag "request[purpose]", nil, col: 10, row: 2, placeholder: "Enter project purpose...", required: true %>
+                <%= text_area_tag "request[purpose]", nil, size: "25x3", placeholder: "Enter project purpose...", required: true %>
             </div>
             <div class="col-xs-12">
                 <label>What sort of help do you need ?</label>
-                <%= text_area_tag "request[skills]", nil, col: 10, row: 2, placeholder: "Select up to 4 Skills", required: true, id: "select-to" %>
+                <%= text_area_tag "request[skills]", nil, size: "25x2", placeholder: "Select up to 4 Skills", required: true, id: "select-to" %>
             </div>
           </div>
         </div>
