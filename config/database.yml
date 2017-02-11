@@ -7,10 +7,10 @@
 #
 default: &default
   adapter: mysql2
-  username: root
-  password: <%= ENV['DB_1_ENV_MYSQL_ROOT_PASSWORD'] || '' %>
-  host: <%= ENV['DB_1_PORT_3306_TCP_ADDR'] || 'localhost' %>
-  port: <%= ENV['DB_1_PORT_3306_TCP_PORT'] || '3306' %>
+  username: <%= ENV['PROD_DB_USER'] || '' %>
+  password: <%= ENV['PROD_DB_PASSWORD'] || '' %>
+  host: <%= ENV['PROD_DB_HOST'] || 'localhost' %>
+  port: <%= ENV['PROD_DB_PORT'] || '3306' %>
 
 development:
   <<: *default
