@@ -5,7 +5,7 @@ class VisitorsController < ApplicationController
     if visitor.save
       if params[:group] == "Requester"
         flash[:success] = "Email updated, now let's fill out your request info!"
-        redirect_to requester_path(visitor_id: visitor_id)
+        redirect_to request_path(visitor_id: visitor_id)
       else
         flash[:success] = "Email updated, now let's fill out your volunteer info!"
         redirect_to volunteer_path(visitor_id: visitor_id)

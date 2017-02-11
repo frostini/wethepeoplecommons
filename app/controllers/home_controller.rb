@@ -6,9 +6,5 @@ class HomeController < ApplicationController
   end
   def showcase
   end
-  def help_request
-  end
-  def volunteer_profile
-  end
 
 end

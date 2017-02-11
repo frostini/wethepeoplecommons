@@ -1,0 +1,143 @@
+<section class="height-50 bg--dark imagebg page-title page-title--animate" data-overlay="5">
+  <div class="background-image-holder">
+    <%=image_tag("idea_flow.jpg")%>
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <h2>Request Help</h2>
+        <p class="lead">Pillar is a team of passionate designers, developers and artists working in print and digital. We collaborate with clients to establish bold, effective identities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="elements-forms">
+  <div class="container">
+    <%= form_tag requests_path, method: :post do |f| %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <div class="elements--title">
+                  <h4>1. Personal Information</h4>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label>Email</label>
+              <%= email_field_tag "user[email]", @visitor.try(:email), placeholder: "yours@needhelp.com", required: true %>
+            </div>
+            <div class="col-sm-6">
+              <label>Password</label>
+              <%= password_field_tag "user[password]", nil, placeholder: "min 8 characters", minlength: 8, maxlength: 20, required: true %>
+            </div>
+            <div class="col-sm-6">
+              <label>First Name:</label>
+              <%= text_field_tag "user[first_name]", nil, required: true, placeholder: "First Name" %>
+            </div>
+            <div class="col-sm-6">
+              <label>Last Name:</label>
+              <%= text_field_tag "user[last_name]", nil, required: true, placeholder: "Last Name" %>
+            </div>
+            <div class="col-sm-6">
+                <label>Phone Number:</label>
+                <%= phone_field_tag "user[phone]", nil, placeholder: "Example: (434) 345-3342" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-10 col-sm-offset-1">
+            <hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+          <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="elements--title">
+                    <h4>2. Organization Information (optional)</h4>
+                </div>
+                <div class="col-sm-6">
+                    <label>Organization Name:</label>
+                    <%= text_field_tag "organization[name]", nil, placeholder: "Your org's name" %>
+                </div>
+                <div class="col-sm-6">
+                    <label>URL:</label>
+                    <%= url_field_tag "organization[url]", nil, placeholder: "http://wethepeoplecommons.org" %>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <hr>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+          <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4>3. Request Information</h4>
+            </div>
+            <div class="col-xs-12">
+                <label>Description of Initiative or Project:</label>
+                <%= text_area_tag "request[description]", nil, col: 10, row: 2, placeholder: "Enter project description...", required: true %>
+            </div>
+            <div class="col-xs-12">
+                <label>Purpose of initiative or project:</label>
+                <%= text_area_tag "request[purpose]", nil, col: 10, row: 2, placeholder: "Enter project purpose...", required: true %>
+            </div>
+            <div class="col-xs-12">
+                <label>What sort of help do you need ?</label>
+                <input id="select-to" type="skills" placeholder="Select up to 4 Skills" />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <hr>
+        </div>
+      </div>
+
+      <div class="row text-center">
+          <div class="col-xs-12">
+              <div class="row">
+                  <div class="col-xs-12">
+                      <h4 class="">4. Level of urgency</h4>
+                  </div>
+                  <div class="col-xs-4">
+                      <div class="input-radio">
+                          <div class="inner"></div>
+                          <%= radio_button_tag "request[urgency]", "ASAP" %>
+                      </div>
+                      <label>ASAP</label>
+                  </div>
+                  <div class="col-xs-4">
+                      <div class="input-radio">
+                          <div class="inner"></div>
+                          <%= radio_button_tag "request[urgency]", "Soon" %>
+                      </div>
+                      <label>Soon</label>
+                  </div>
+                  <div class="col-xs-4">
+                      <div class="input-radio">
+                          <div class="inner"></div>
+                          <%= radio_button_tag "request[urgency]", "Eventually" %>
+                      </div>
+                      <label>Eventually</label>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row mt48">
+          <div class="col-sm-4 col-sm-offset-4">
+              <%= button_tag "Request Help", type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." }%>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+
+<% content_for :javascript do %>
+  <% javascript_include_tag 'selectize_skills' %>
+<% end %>

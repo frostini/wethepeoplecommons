@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   resources :visitors, only: [:create]
 
-  get '/request' => 'requesters#new'
+  get '/request' => 'requests#new'
+  resources :requests, only: [:create]
 
-  get '/volunteer' => 'volunteers#new'
+  get '/volunteer' => 'volunteer_profiles#new'
 
   # Example of regular route:
 

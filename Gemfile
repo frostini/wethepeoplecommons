@@ -13,12 +13,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use Devise for User Authentication
-gem 'devise'
-# gem 'omniauth', '~> 1.3.1'
-# gem 'omniauth-facebook', '~> 4.0'
-# gem 'omniauth-google-oauth2', '~> 0.4.1'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -32,6 +26,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use for heroku deployment
 gem 'rails_12factor', group: :production
+
+# use bcrypt for now for password
+gem 'bcrypt', '~> 3.1.11'
+gem 'devise'
+
+gem 'sanitize-url',    '~> 0.1.4'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -50,9 +50,14 @@ group :development, :test do
   gem 'awesome_print'
   # Disable asset logging
   gem 'quiet_assets'
+  # pretty console tool
+  gem 'jazz_fingers',                           '~> 4.0.1'
 end
 
 group :development do
+  #Preview action mailer emails inline
+  gem 'letter_opener',                          '~> 1.4.1'
+
   # better console debugging errors
   gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'
