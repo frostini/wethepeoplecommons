@@ -13,25 +13,23 @@ default: &default
   password:
   socket: /tmp/mysql.sock
 
-production:
-  <<: *default
-  database: wethepeoplecommons_production
-  username: <%= ENV['PROD_DB_USER'] || '' %>
-  password: <%= ENV['PROD_DB_PASSWORD'] || '' %>
-  url: <%= ENV['JAWSDB_URL'] || 'localhost' %>
-  port: <%= ENV['PROD_DB_PORT'] || '3306' %>
-
 development:
   <<: *default
   database: wethepeoplecommons_dev
+  host: 'localhost'
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: test
+  database: wethepeoplecommons_test
 
-staging:
+production:
   <<: *default
-  database: wethepeoplecommons_staging
+  database: wethepeoplecommons_production
+  username: <%= ENV['PROD_DB_USER']%>
+  password: <%= ENV['PROD_DB_PASSWORD'] %>
+  url: <%= ENV['JAWSDB_URL'] %>
+  port: 3306
