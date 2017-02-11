@@ -7,9 +7,18 @@
 #
 default: &default
   adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+production:
+  <<: *default
+  database: wethepeoplecommons_production
   username: <%= ENV['PROD_DB_USER'] || '' %>
   password: <%= ENV['PROD_DB_PASSWORD'] || '' %>
-  host: <%= ENV['PROD_DB_HOST'] || 'localhost' %>
+  url: <%= ENV['JAWSDB_URL'] || 'localhost' %>
   port: <%= ENV['PROD_DB_PORT'] || '3306' %>
 
 development:
@@ -26,7 +35,3 @@ test:
 staging:
   <<: *default
   database: wethepeoplecommons_staging
-
-production:
-  <<: *default
-  database: wethepeoplecommons_production
