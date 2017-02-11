@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:create]
 
   get '/volunteer' => 'volunteer_profiles#new'
+  resources :volunteer_profiles, only: [:create]
 
   # Example of regular route:
 

@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
     end
 
     @request = Request.new
+    @skills = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
   end
 
   def create
@@ -29,7 +30,10 @@ class RequestsController < ApplicationController
         request.save!
 
         # do some skill mapping
+        skills = Skill.where(id: params[:request][:skills].split(','))
+        request.skills << skills
         flash[:success] = "Your request have been received! Please expect an email from us soon!"
+        redirect_to :back
       end
     rescue => e
       flash[:error] = "Sorry #{e.message}"

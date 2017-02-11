@@ -13,70 +13,93 @@
 </section>
 <section class="elements-forms">
     <div class="container">
-        <form method="post">
+      <%= form_tag volunteer_profiles_path, method: :post do |f| %>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                            <div class="elements--title">
-                                <h4>1. Personal Information</h4>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <label>First Name:</label>
-                            <input type="text" name="first_name" placeholder="Some" />
-                        </div>
-                        <div class="col-sm-6">
-                            <label>Last Name:</label>
-                            <input type="text" name="last_name" placeholder="Person" />
-                        </div>
-                        <div class="col-sm-6">
-                            <label>Email:</label>
-                            <input type="title" name="title" placeholder="Example: Director of Outreach" />
-                        </div>
-                        <div class="col-sm-6">
-                            <label>Phone Number:</label>
-                            <input type="phone_number" name="phone_number" placeholder="Example: (434) 345-3342" />
-                        </div>
-                    </div>
+              <div class="col-sm-12 text-center">
+                <div class="elements--title">
+                    <h4>1. Personal Information</h4>
                 </div>
-                <div class="col-sm-10 col-sm-offset-1">
-                    <hr>
-                </div>
+              </div>
+              <div class="col-sm-6">
+                <label>Email</label>
+                <%= email_field_tag "user[email]", @visitor.try(:email), placeholder: "yours@needhelp.com", required: true %>
+              </div>
+              <div class="col-sm-6">
+                <label>Password</label>
+                <%= password_field_tag "user[password]", nil, placeholder: "min 8 characters", minlength: 8, maxlength: 20, required: true %>
+              </div>
+              <div class="col-sm-6">
+                <label>First Name:</label>
+                <%= text_field_tag "user[first_name]", nil, required: true, placeholder: "First Name" %>
+              </div>
+              <div class="col-sm-6">
+                <label>Last Name:</label>
+                <%= text_field_tag "user[last_name]", nil, required: true, placeholder: "Last Name" %>
+              </div>
+              <div class="col-sm-6">
+                  <label>Phone Number:</label>
+                  <%= phone_field_tag "user[phone]", nil, placeholder: "Example: (434) 345-3342" %>
+              </div>
             </div>
-            <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
-                    <div class="row">
-                        <div class="col-xs-12 text-center">
-                            <h4>2. Skills</h4>
-                        </div>
-                        <div class="col-xs-12">
-                            <label>Can you share a little about your self ? Experience volunteering or working with social causes ?</label>
-                            <textarea class="" cols="10" rows="2" placeholder="Enter description..."></textarea>
-                        </div>
-                        <div class="col-xs-12">
-                            <label>What kind of project would you like to help in ?</label>
-                            <textarea class="" cols="10" rows="2" placeholder="Enter description..."></textarea>
-                        </div>
-                        <div class="col-xs-12">
-                            <label>Can you tell us a bit about the skills you'd like to volunteer ?</label>
-                            <input id="select-to" type="skills" placeholder="Select up to 4 Skills" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt48">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <button class="btn btn--primary" type="submit">Start Volunteering</button>
+          </div>
 
-                </div>
+          <div class="col-sm-10 col-sm-offset-1">
+              <hr>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                  <div class="elements--title">
+                      <h4>2. Skills</h4>
+                  </div>
+                  <div class="col-sm-12">
+                      <label>Can you share a little about your self ? Experience volunteering or working with social causes ?</label>
+                      <%= text_area_tag "volunteer[bio]", nil, placeholder: "I love doing...", required: true %>
+                  </div>
+                  <div class="col-sm-12">
+                      <label>What kind of project would you like to help in ?</label>
+                      <%= text_area_tag "volunteer[interest]", nil, placeholder: "I would love to help with...", required: true %>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>Can you tell us a bit about the skills you'd like to volunteer ?</label>
+                    <%= text_area_tag "volunteer[skills]", nil, col: 10, row: 2, placeholder: "Select up to 6 Skills", required: true, id: "select-to" %>
+                  </div>
+              </div>
             </div>
-        </form>
+          </div>
+          <div class="col-sm-10 col-sm-offset-1">
+              <hr>
+          </div>
+        </div>
+
+        <div class="row mt48">
+            <div class="col-sm-4 col-sm-offset-4">
+                <%= button_tag "Request Help", type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." }%>
+            </div>
+        </div>
+      <% end %>
     </div>
 </section>
 
 
 
 <% content_for :javascript do %>
-    <% javascript_include_tag 'selectize_skills' %>
+<script>
+$(document).ready(function(){
+  var $select;
+  var options = JSON.parse('<%= @skills %>');
+  $select = $('#select-to').selectize({
+      maxItems: 6,
+      searchField: "name",
+      labelField: 'name',
+      valueField: 'id',
+      options: options
+  });
+});
+</script>
 <% end %>

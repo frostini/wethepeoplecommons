@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label>URL:</label>
-                    <%= url_field_tag "organization[url]", nil, placeholder: "http://wethepeoplecommons.org" %>
+                    <%= text_field_tag "organization[url]", nil, placeholder: "http://wethepeoplecommons.org" %>
                 </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
             </div>
             <div class="col-xs-12">
                 <label>What sort of help do you need ?</label>
-                <input id="select-to" type="skills" placeholder="Select up to 4 Skills" />
+                <%= text_area_tag "request[skills]", nil, col: 10, row: 2, placeholder: "Select up to 4 Skills", required: true, id: "select-to" %>
             </div>
           </div>
         </div>
@@ -139,5 +139,17 @@
 
 
 <% content_for :javascript do %>
-  <% javascript_include_tag 'selectize_skills' %>
+<script>
+$(document).ready(function(){
+  var $select;
+  var options = JSON.parse('<%= @skills %>');
+  $select = $('#select-to').selectize({
+      maxItems: 4,
+      searchField: "name",
+      labelField: 'name',
+      valueField: 'id',
+      options: options
+  });
+});
+</script>
 <% end %>
