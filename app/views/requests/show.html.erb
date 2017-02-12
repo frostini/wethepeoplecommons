@@ -1,0 +1,85 @@
+<section class="height-50 imagebg image--light page-title page-title--animate">
+  <div class="background-image-holder">
+    <%=image_tag("large7.jpg")%>
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1>Request Detail</h1>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <div class="blog-item blog-item-1">
+          <h3><%= "Help Requested by #{@request.user.name}" %></h3>
+          <div class="blog-item__author">
+            <span><em>requested on <%= @request.created_at.to_date %></em></span>
+          </div>
+          <div class="blog-item__author">
+            <span><em>urgency level: <b><%= @request.urgency %></em></span></b>
+          </div>
+          <div class="blog-item__author">
+            <ul class="tag-cloud">
+              <% @request.skills.each do |skill| %>
+              <li>
+                <a href="#" class="btn btn--sm btn--square">
+                  <span class="btn__text"><%= skill.name.titleize %></span>
+                </a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <% if @request.organization.present? %>
+            <h5>Organization Detail</h5>
+            <p class="mb0">
+              Name: <%= @request.organization.name %>
+            </p>
+            <p>
+              URL: <%= link_to @request.organization.url, "http://" + @request.organization.url, target: "_blank" %>
+            </p>
+          <% end %>
+          <h5>Description of Initiative or Project</h5>
+          <p><%= @request.description %></p>
+
+          <h5>Purpose of Initiative or Project</h5>
+          <p><%= @request.purpose %></p>
+          <p class="mt15">
+            <i icon icon-Mail-2></i> <a href="mailto:<%= @request.user.email %>">
+              Contact <%= @request.user.first_name.titleize %>
+            </a>
+          </p>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+
+</section>
+
+<% content_for :javascript do %>
+<script>
+$(document).ready(function(){
+  $('.skills-list li, .urgency-list li').click(function(e){
+    e.preventDefault();
+    var selected_class = $(this).attr("class");
+    $('.skills-list li').not(selected_class).removeClass("active");
+    $(this).addClass("active");
+    if (selected_class === "show-all"){
+     $(".blog-item").show("slow");
+    } else {
+     var target_class = ".blog-item" + "." + selected_class
+     $(".blog-item").not(target_class).hide("slow");
+     $(target_class).show("slow");
+    };
+  });
+});
+</script>
+<% end %>

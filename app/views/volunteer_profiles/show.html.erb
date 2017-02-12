@@ -1,0 +1,72 @@
+<section class="height-50 imagebg image--light page-title page-title--animate">
+  <div class="background-image-holder">
+    <%=image_tag("large11.jpg")%>
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1>Volunteer Profile</h1>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <div class="blog-item blog-item-1">
+          <h3><%= @profile.user.name %></h3>
+          <div class="blog-item__author">
+            <span><em>volunteering since <%= @profile.created_at.to_date %></em></span>
+          </div>
+          <div class="blog-item__author">
+            <ul class="tag-cloud">
+              <% @profile.skills.each do |skill| %>
+              <li>
+                <a href="#" class="btn btn--sm btn--square">
+                  <span class="btn__text"><%= skill.name.titleize %></span>
+                </a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <h5><%= @profile.user.first_name.titleize %>'s Bio</h5>
+          <p><%= @profile.bio %></p>
+          <h5>Projects <%= @profile.user.first_name.titleize %> is Interested in Working On</h5>
+          <p><%= @profile.interest %></p>
+          <p class="mt15">
+            <a href="mailto:<%= @profile.user.email %>">
+              <i icon icon-Mail-2></i>Contact <%= @profile.user.first_name.titleize %>
+            </a>
+          </p>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+
+</section>
+
+<% content_for :javascript do %>
+<script>
+$(document).ready(function(){
+  $('.skills-list li, .urgency-list li').click(function(e){
+    e.preventDefault();
+    var selected_class = $(this).attr("class");
+    $('.skills-list li').not(selected_class).removeClass("active");
+    $(this).addClass("active");
+    if (selected_class === "show-all"){
+     $(".blog-item").show("slow");
+    } else {
+     var target_class = ".blog-item" + "." + selected_class
+     $(".blog-item").not(target_class).hide("slow");
+     $(target_class).show("slow");
+    };
+  });
+});
+</script>
+<% end %>

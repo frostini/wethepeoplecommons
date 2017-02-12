@@ -5,4 +5,8 @@ class VolunteerProfile < ActiveRecord::Base
 
   validates_presence_of :bio
   validates_presence_of :interest
+
+  def tags
+    skills.map(&:tag).join(" ")
+  end
 end

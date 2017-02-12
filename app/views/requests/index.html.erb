@@ -14,7 +14,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 hidden-sm hidden-xs">
-        <%= render 'shared/side_filter', skills: @skills, urgencies: @urgencies %>
+        <%= render 'shared/side_filter', skills: @skills, urgencies: @urgencies, title: "Filter by Skills Needed" %>
       </div>
       <div class="col-md-8 col-md-offset-1">
         <% @requests.each do |request| %>
@@ -39,11 +39,10 @@
             </div>
             <p>
               <%= truncate(request.description, length: 500, separator: ' ') %>
-              <br />
             </p>
             <p class="mt15">
               <%= link_to request_path(request) do %>
-                View Detail -></i>
+                View Request Detail ->
               <% end %>
             </p>
             <hr>
@@ -86,7 +85,6 @@
 $(document).ready(function(){
   $('.skills-list li, .urgency-list li').click(function(e){
     e.preventDefault();
-    console.log($(this).attr("class"));
     var selected_class = $(this).attr("class");
     $('.skills-list li').not(selected_class).removeClass("active");
     $(this).addClass("active");
@@ -94,7 +92,6 @@ $(document).ready(function(){
      $(".blog-item").show("slow");
     } else {
      var target_class = ".blog-item" + "." + selected_class
-     console.log("target class: " + target_class);
      $(".blog-item").not(target_class).hide("slow");
      $(target_class).show("slow");
     };

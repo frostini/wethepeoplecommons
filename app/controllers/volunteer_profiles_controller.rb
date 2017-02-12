@@ -1,17 +1,23 @@
 class VolunteerProfilesController < ApplicationController
 
   def index
+    @profiles = VolunteerProfile.includes(:user, :skills)
+    @skills   = Skill.joins(skill_joins: :volunteer_profile)
   end
 
   def show
+    @profile  = VolunteerProfile.find_by_id(params[:id])
+    unless @profile.present?
+      flash[:error] = "Sorry, volunteer not found!"
+      redirect_to :back
+    end
   end
-  
+
   def new
     if params[:visitor_id].present?
       @visitor = Visitor.find_by_id(params[:visitor_id])
     end
 
-    @request = VolunteerProfile.new
     @skills = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
   end
 

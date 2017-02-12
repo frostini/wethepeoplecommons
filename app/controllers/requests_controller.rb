@@ -7,6 +7,11 @@ class RequestsController < ApplicationController
   end
 
   def show
+    @request  = Request.find_by_id(params[:id])
+    unless @request.present?
+      flash[:error] = "Sorry, volunteer not found!"
+      redirect_to :back
+    end
   end
 
   def new
@@ -14,7 +19,6 @@ class RequestsController < ApplicationController
       @visitor = Visitor.find_by_id(params[:visitor_id])
     end
 
-    @request = Request.new
     @skills  = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
   end
 
