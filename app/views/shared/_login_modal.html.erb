@@ -1,0 +1,51 @@
+<div class="modal-instance">
+  <a class="btn modal-trigger btn--primary" href="#">
+    <span class="btn__text">Log In</span>
+  </a>
+  <div class="modal-container">
+    <div class="modal-content bg--white height--natural">
+      <div class="form-subscribe-1 boxed boxed--lg bg--white box-shadow-wide">
+        <div class="subscribe__title text-center">
+          <h4>Log In</h4>
+        </div>
+
+        <%= form_tag '/login', method: :post, html: {class: "form--center-submit-button"} do %>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-with-icon">
+                <label>Username:</label>
+                <i class="icon icon-Male-2"></i>
+                <%= email_field_tag :email, nil, class: "validate-required validate-email", required: true, placeholder: "Email Address" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt30">
+            <div class="col-sm-12">
+              <div class="input-with-icon">
+                <label>Password:</label>
+                <i class="icon icon-Security-Check"></i>
+                <%= password_field_tag :password, nil, required: true, placeholder: "Password" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt30">
+            <div class="col-sm-12">
+              <%= button_tag :submit, class: "btn" do %>
+                Log In
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row text-center mt15">
+            <p class="type--fine-print">
+              New to here?
+              <a href="#">Sign Up Here</a>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

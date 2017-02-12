@@ -1,0 +1,55 @@
+<section class="cover cover-12 form--dark imagebg height-100 parallax" data-overlay="4">
+  <div class="background-image-holder">
+    <%= image_tag("login_hero.jpg") %>
+  </div>
+  <div class="container pos-vertical-center text-center-xs">
+    <div class="row pos-vertical-align-columns">
+      <div class="col-md-7 col-sm-8 col-sm-offset-2">
+        <h2>Join Our Awesome Community of Social Good Causes and Volunteers</h2>
+      </div>
+      <div class="col-md-5 col-sm-8 col-sm-offset-2">
+        <div class="form-subscribe-1 boxed boxed--lg bg--white text-center box-shadow-wide">
+          <h4>Log In</h4>
+          <%= form_tag '/login', method: :post do %>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="input-with-icon">
+                  <label>Email:</label>
+                  <i class="icon icon-Mail-2"></i>
+                  <%= email_field_tag :email, nil, class: "validate-required validate-email", required: true, placeholder: "Email Address" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt30">
+              <div class="col-sm-12">
+                <div class="input-with-icon">
+                  <label>Password:</label>
+                  <i class="icon icon-Security-Check"></i>
+                  <%= password_field_tag :password, nil, required: true, placeholder: "Password" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt30">
+              <div class="col-sm-12">
+                <%= button_tag :submit, class: "btn" do %>
+                  Log In
+                <% end %>
+              </div>
+            </div>
+
+            <div class="row text-center mt15">
+              <p class="type--fine-print">
+                New to here?
+                <%= link_to "Sign Up Here", new_user_path %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>

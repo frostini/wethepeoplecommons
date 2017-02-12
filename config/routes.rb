@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get '/showcase' => 'home#showcase', as: :showcase
-  get '/faqs' => 'home#faqs', as: :faqs
+  # get '/faqs' => 'home#faqs', as: :faqs
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   resources :visitors, only: [:create]
+  resources :users, only: [:new, :show, :create]
 
   resources :requests, only: [:create, :index, :show, :new]
 
