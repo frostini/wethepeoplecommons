@@ -1,0 +1,45 @@
+<div class="sidebar">
+  <!-- <div class="sidebar__widget">
+    <h6>Search Site</h6>
+    <hr>
+    <form method="post">
+      <div class="input-with-icon">
+        <i class="icon-Magnifi-Glass2"></i>
+        <input type="search" placeholder="Type Here" />
+      </div>
+    </form>
+  </div> -->
+  <!--end widget-->
+  <div class="sidebar__widget skills-list">
+    <h6>Skills Needed</h6>
+    <hr>
+    <ul class="link-list">
+      <li class="show-all active">
+        <a href="#">Show All</a>
+      </li>
+      <% skills.each do |skill| %>
+        <li class=<%= skill.tag %>>
+          <a href="#"><%= skill.name.titleize %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <!--end widget-->
+  <% if urgencies.present? %>
+    <div class="sidebar__widget urgency-list">
+      <h6>Tags</h6>
+      <hr>
+      <ul class="tag-cloud">
+        <% urgencies.each do |level| %>
+          <li class=<%= level.downcase %>>
+            <a href="#" class="btn btn--sm btn--square">
+              <span class="btn__text">
+                <%= level %>
+              </span>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %><!--end widget-->
+</div>

@@ -11,4 +11,8 @@ class Request < ActiveRecord::Base
   validates_presence_of :purpose
 
   scope :active, -> { where(is_active: true) }
+
+  def tags
+    skills.map(&:tag).join(" ") + " #{urgency.downcase}"
+  end
 end

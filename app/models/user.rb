@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   validates_format_of :phone, with: /\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})\z/, message: 'is an invalid format.', allow_blank: true
   before_save   :sanitize_phone_field
 
+  def name
+    first_name.titleize + ' ' + last_name.titleize
+  end
 
   private
 

@@ -7035,9 +7035,9 @@ section:first-of-type.imagebg + .masonry-contained {
 .blog-item-1:not(:last-child) hr {
   margin: 3.25em 0;
 }
-.blog-item-1:nth-last-child(2) hr {
-  display: none;
-}
+// .blog-item-1:nth-last-child(2) hr {
+//   display: none;
+// }
 @media all and (max-width: 767px) {
   .blog-item-1:not(:last-child) hr {
     margin: 1.625em 0;
