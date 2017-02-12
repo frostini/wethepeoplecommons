@@ -79,4 +79,5 @@ Rails.application.configure do
 
   # send action mailer through sparkpost
   config.action_mailer.delivery_method = :sparkpost
+  config.action_mailer.default_url_options = { :host => 'wethepeoplecommons.org' }
 end

@@ -19,9 +19,15 @@
                       <td>
                         <div class='contentEditableContainer contentTextEditable'>
                           <div class='contentEditable' style='text-align: center;'>
-                            <h2 style="font-size: 20px;">Your volunteer profile has been received!</h2>
+                            <h2 style="font-size: 20px;">Hi <%= @volunteer.user.first_name.titleize %>, Your volunteer profile has been created!</h2>
                             <br>
-                            <p>Welcome and glad to have you as part of our community of good-doing, bad-asses! Your profile details are as below.</p>
+                            <p>Welcome and so glad to have you as part of our community of good-doing bad-asses! Your profile details are as below.</p>
+                            <br />
+                            <p>We will inform you when there are requests from organizations that matches your skills. In the mean time, you can also browser our requests list and reach out to anyone who you might be interested in working with!
+                            </p>
+                            <br><br>
+                            <a target='_blank' href="<%= requests_url %>" class='link3'>See all requests</a>
+                            <br />
                           </div>
                         </div>
                       </td>
@@ -108,12 +114,12 @@
                       <td>
                         <div class='contentEditableContainer contentTextEditable'>
                           <div class='contentEditable' style='text-align: center;'>
-                            <h2 style="font-size: 20px;">Stay Tuned for Updates!</h2>
+                            <h2 style="font-size: 20px;">Love Our Cause? Support Us Today!</h2>
                             <br />
-                            <p>We will inform you when there are requests from organizations that matches your skills. In the mean time, you can also browser our requests list and reach out to anyone who you might be interested in working with!
+                            <p>WeThePeople Commons is entirely operated on donations from people like you because we believe in providing support for social-good causes for free. So whether it's a one-time $5 or a $10 monthly donation, your support is the fuel that keeps us going and is greatly appreciated by us and people you have helped!
                             </p>
                             <br><br>
-                            <a target='_blank' href="#" class='link3'>See all requests</a>
+                            <a target='_blank' href="https://donorbox.org/wethepeoplecommons" class='link3'>Donate Today</a>
                             <br>
                           </div>
                         </div>
