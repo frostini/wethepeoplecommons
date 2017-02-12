@@ -35,12 +35,11 @@
           <h5><%= @profile.user.first_name.titleize %>'s Bio</h5>
           <p><%= @profile.bio %></p>
           <h5>Projects <%= @profile.user.first_name.titleize %> is Interested in Working On</h5>
-          <p><%= @profile.interest %></p>
-          <p class="mt15">
-            <a href="mailto:<%= @profile.user.email %>">
-              <i icon icon-Mail-2></i>Contact <%= @profile.user.first_name.titleize %>
-            </a>
-          </p>
+          <p class="mb30"><%= @profile.interest %></p>
+          <p></p>
+          <a href="mailto:<%= @profile.user.email %>" class="btn btn--xs btn--secondary">
+            <i class="fa fa-envelope-o mr5"></i><span class="btn__text">  Contact <%= @profile.user.first_name.titleize %></span>
+          </a>
           <hr>
         </div>
       </div>

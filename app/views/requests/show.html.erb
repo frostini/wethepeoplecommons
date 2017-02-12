@@ -48,12 +48,11 @@
           <p><%= @request.description %></p>
 
           <h5>Purpose of Initiative or Project</h5>
-          <p><%= @request.purpose %></p>
-          <p class="mt15">
-            <i icon icon-Mail-2></i> <a href="mailto:<%= @request.user.email %>">
-              Contact <%= @request.user.first_name.titleize %>
-            </a>
-          </p>
+          <p class="mb30"><%= @request.purpose %></p>
+          <p></p>
+          <a href="mailto:<%= @request.user.email %>" class="btn btn--xs btn--secondary">
+            <i class="fa fa-envelope-o mr5"></i><span class="btn__text">  Contact <%= @request.user.first_name.titleize %></span>
+          </a>
           <hr>
         </div>
       </div>
