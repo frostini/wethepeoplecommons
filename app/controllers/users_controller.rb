@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authorize, only: [:show]
+  before_filter :authorize, only: [:show, :update]
 
   def show
     @user = current_user
@@ -22,6 +22,9 @@ class UsersController < ApplicationController
     # If user's login doesn't work, send them back to the login form.
       redirect_to :back
     end
+  end
+
+  def update
   end
 
 end

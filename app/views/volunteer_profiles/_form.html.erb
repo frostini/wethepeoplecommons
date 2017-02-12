@@ -1,0 +1,82 @@
+<section class="elements-forms">
+  <div class="container">
+    <%= form_tag url, method: method, class: "form--square" do |f| %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <div class="elements--title">
+                <h4>1. Personal Information</h4>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label>Email</label>
+              <%= email_field_tag "user[email]", current_user.try(:email), placeholder: "yours@needhelp.com", required: true %>
+            </div>
+            <div class="col-sm-6">
+              <label>First Name:</label>
+              <%= text_field_tag "user[first_name]", current_user.try(:first_name), required: true, placeholder: "First Name" %>
+            </div>
+            <div class="col-sm-6">
+              <label>Last Name:</label>
+              <%= text_field_tag "user[last_name]", current_user.try(:last_name), required: true, placeholder: "Last Name" %>
+            </div>
+            <div class="col-sm-6">
+              <label>Phone Number:</label>
+              <%= phone_field_tag "user[phone]", current_user.try(:phone), placeholder: "Example: (434) 345-3342" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-10 col-sm-offset-1">
+          <hr>
+        </div>
+      </div>
+
+      <% if current_user.volunteer_profile.present? %>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <div class="elements--title">
+                  <h4>2. Skills</h4>
+                </div>
+                <div class="col-sm-12">
+                  <label>Can you share a little about your self ? Experience volunteering or working with social causes ?</label>
+                  <%= text_area_tag "volunteer[bio]", current_user.volunteer_profile.bio, placeholder: "I love doing...", required: true, size: "25x5" %>
+                </div>
+                <div class="col-sm-12">
+                  <label>What kind of project would you like to help in ?</label>
+                  <%= text_area_tag "volunteer[interest]", current_user.volunteer_profile.interest, placeholder: "I would love to help with...", required: true, size: "25x3" %>
+                </div>
+                <div class="col-xs-12">
+                  <label>Can you tell us a bit about the skills you'd like to volunteer ?</label>
+                  <div class="blog-item__author">
+                    <ul class="tag-cloud">
+                      <% current_user.volunteer_profile.skills.each do |skill| %>
+                      <li>
+                        <a href="#" class="btn btn--sm btn--square">
+                          <span class="btn__text"><%= skill.name.titleize %></span>
+                        </a>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-10 col-sm-offset-1">
+            <hr>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="row mt48">
+        <div class="col-sm-4 col-sm-offset-4">
+          <%= button_tag button_text, type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." }%>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</section>
