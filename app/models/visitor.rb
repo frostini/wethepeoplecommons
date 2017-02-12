@@ -1,4 +1,6 @@
 class Visitor < ActiveRecord::Base
+  has_one :user, inverse_of: :visitor
+  
   VALID_VISITOR_TYPE = ["Requester", "Volunteer"].freeze
 
   validates :group, inclusion: {in: VALID_VISITOR_TYPE}

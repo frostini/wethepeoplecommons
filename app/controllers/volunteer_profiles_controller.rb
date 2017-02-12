@@ -22,7 +22,7 @@ class VolunteerProfilesController < ApplicationController
         profile.save!
 
         # do some skill mapping
-        skills = Skill.where(id: params[:request][:skills].split(','))
+        skills = Skill.where(id: params[:volunteer][:skills].split(','))
         profile.skills << skills
         flash[:success] = "Thanks signing up! Please expect an email from us soon!"
         redirect_to :back

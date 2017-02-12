@@ -30,11 +30,15 @@ gem 'rails_12factor', group: :production
 # use bcrypt for now for password
 gem 'bcrypt', '~> 3.1.11'
 gem 'devise'
-
+# URL sanitizer
 gem 'sanitize-url',    '~> 0.1.4'
-
+# sets up settings.yml and local env settings file
+gem 'config', '~> 1.3'
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+# sparkpost is our email service
+gem 'sparkpost_rails', '~> 1.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -57,7 +61,6 @@ end
 group :development do
   #Preview action mailer emails inline
   gem 'letter_opener',                          '~> 1.4.1'
-
   # better console debugging errors
   gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'

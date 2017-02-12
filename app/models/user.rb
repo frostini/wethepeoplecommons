@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   include ApplicationHelper
   has_secure_password
 
+  has_many :requests, inverse_of: :user
+  has_one :volunteer_profile, inverse_of: :user
+  belongs_to :visitor, inverse_of: :user
+
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates_uniqueness_of :email
   validates_presence_of :email

@@ -1,0 +1,138 @@
+<div class="movableContent" style="border: 0px; padding-top: 0px; position: relative;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td height='40'></td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #EEEEEE; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td valign="top" width="40">&nbsp;</td>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr>
+                      <td height='25'></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class='contentEditableContainer contentTextEditable'>
+                          <div class='contentEditable' style='text-align: center;'>
+                            <h2 style="font-size: 20px;">Your volunteer profile has been received!</h2>
+                            <br>
+                            <p>Welcome and glad to have you as part of our community of good-doing, bad-asses! Your profile details are as below.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height='24'></td>
+                    </tr>
+                  </table>
+                </td>
+                <td valign="top" width="40">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="movableContent" style="border: 0px; padding-top: 0px; position: relative;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td height="40"></td>
+      </tr>
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="specbundle" style="width:47%;">
+                  <div class='contentEditableContainer contentTextEditable'>
+                    <div class='contentEditable' style='text-align: center;'>
+                      <h2 style="font-size: 20px;">Little about yourself</h2>
+                      <br>
+                      <p><%= @volunteer.bio %></p>
+                      <br><br>
+                      <br>
+                    </div>
+                  </div>
+                </td>
+                <td valign="top" width="6%" class="specbundle">&nbsp;</td>
+                <td class="specbundle" style="width=47%">
+                  <div class='contentEditableContainer contentTextEditable'>
+                    <div class='contentEditable' style='text-align: center;'>
+                      <h2 style="font-size: 20px;">What you are looking for in projects</h2>
+                      <br>
+                      <p><%= @volunteer.interest %></p>
+                      <p style="margin-top:15px;">
+                        Skills: <%= @volunteer.skills.map(&:name).to_sentence %>
+                      </p>
+                      <br><br>
+                      <br>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="movableContent" style="border: 0px; padding-top: 0px; position: relative;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td height="40"></td>
+      </tr>
+      <tr>
+        <td style="background:#F6F6F6; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td width="40" valign="top">&nbsp;</td>
+                <td valign="top">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr>
+                      <td height='25'></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class='contentEditableContainer contentTextEditable'>
+                          <div class='contentEditable' style='text-align: center;'>
+                            <h2 style="font-size: 20px;">Stay Tuned for Updates!</h2>
+                            <br />
+                            <p>We will inform you when there are requests from organizations that matches your skills. In the mean time, you can also browser our requests list and reach out to anyone who you might be interested in working with!
+                            </p>
+                            <br><br>
+                            <a target='_blank' href="#" class='link3'>See all requests</a>
+                            <br>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height='24'></td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="40" valign="top">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>
