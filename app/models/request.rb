@@ -10,4 +10,5 @@ class Request < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :purpose
 
+  scope :active, -> { where(is_active: true) }
 end

@@ -17,8 +17,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   # user letter opener gem to allow preview of email in browser, to actually send in development, comment this line out
-  # config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.delivery_method = :sparkpost
+  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :sparkpost
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

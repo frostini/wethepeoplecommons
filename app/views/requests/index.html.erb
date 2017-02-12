@@ -1,0 +1,172 @@
+<section class="height-50  page-title page-title--animate">
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1>Browse Requests</h1>
+        <p>Check out what requests has been made by social good organizations<br /> and start <strong>making great things together</strong> today!</p>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 hidden-sm hidden-xs">
+        <div class="sidebar">
+          <!-- <div class="sidebar__widget">
+            <h6>Search Site</h6>
+            <hr>
+            <form method="post">
+              <div class="input-with-icon">
+                <i class="icon-Magnifi-Glass2"></i>
+                <input type="search" placeholder="Type Here" />
+              </div>
+            </form>
+          </div> -->
+          <!--end widget-->
+          <div class="sidebar__widget">
+            <h6>Skills Needed</h6>
+            <hr>
+            <ul class="link-list">
+              <li>
+                <a href="#">
+                  Show All
+                </a>
+              </li>
+              <% @skills.each do |skill| %>
+                <li>
+                  <a href="#">
+                    <%= skill.name.titleize %>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <!--end widget-->
+          <div class="sidebar__widget">
+            <h6>Tags</h6>
+            <hr>
+            <ul class="tag-cloud">
+              <% @urgencies.each do |level| %>
+                <li>
+                  <a href="#" class="btn btn--sm btn--square">
+                    <span class="btn__text">
+                      <%= level %>
+                    </span>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <!--end widget-->
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-1">
+        <div class="blog-item blog-item-1">
+          <a href="#">
+            <img alt="pic" src="img/small2.jpg" />
+          </a>
+          <a href="#">
+            <h4>Opinion: Mobile camera apps have reached saturation point</h4>
+          </a>
+          <div class="blog-item__author">
+            <span>
+                                      <em>by</em>
+                                  </span>
+            <span class="h6">Cameron Smith</span>
+          </div>
+          <p>
+            Quantitative vs. qualitative disrupt paradigm ideate user story parallax user story prototype hacker. Steve Jobs entrepreneur human-centered design parallax parallax cortado waterfall is so 2000 and late SpaceTeam unicorn workflow ship it integrate latte.
+          </p>
+          <hr>
+        </div>
+        <!--end blog item-->
+        <div class="blog-item blog-item-1">
+          <a href="#">
+            <img alt="pic" src="img/small4.jpg" />
+          </a>
+          <a href="#">
+            <h4>Exploring New York's most popular coffee shops</h4>
+          </a>
+          <div class="blog-item__author">
+            <span>
+                                      <em>by</em>
+                                  </span>
+            <span class="h6">Abby Bollard</span>
+          </div>
+          <p>
+            Quantitative vs. qualitative disrupt paradigm ideate user story parallax user story prototype hacker. Steve Jobs entrepreneur human-centered design parallax parallax cortado waterfall is so 2000 and late SpaceTeam unicorn workflow ship it integrate latte.
+          </p>
+          <hr>
+        </div>
+        <!--end blog item-->
+        <div class="blog-item blog-item-1">
+          <a href="#">
+            <img alt="pic" src="img/small5.jpg" />
+          </a>
+          <a href="#">
+            <h4>Bathing in a pool for 30 minutes increases wetness</h4>
+          </a>
+          <div class="blog-item__author">
+            <span>
+                                      <em>by</em>
+                                  </span>
+            <span class="h6">Amy Bowden</span>
+          </div>
+          <p>
+            Quantitative vs. qualitative disrupt paradigm ideate user story parallax user story prototype hacker. Steve Jobs entrepreneur human-centered design parallax parallax cortado waterfall is so 2000 and late SpaceTeam unicorn workflow ship it integrate latte.
+          </p>
+          <hr>
+        </div>
+        <!--end blog item-->
+        <div class="blog-item blog-item-1">
+          <a href="#">
+            <img alt="pic" src="img/small10.jpg" />
+          </a>
+          <a href="#">
+            <h4>Doing more with less: living a life downsized</h4>
+          </a>
+          <div class="blog-item__author">
+            <span>
+                                      <em>by</em>
+                                  </span>
+            <span class="h6">Pricilla Vaughn</span>
+          </div>
+          <p>
+            Quantitative vs. qualitative disrupt paradigm ideate user story parallax user story prototype hacker. Steve Jobs entrepreneur human-centered design parallax parallax cortado waterfall is so 2000 and late SpaceTeam unicorn workflow ship it integrate latte.
+          </p>
+          <hr>
+        </div>
+        <!--end blog item-->
+        <div class="pagination-container">
+          <hr>
+          <ul class="pagination">
+            <li>
+              <a href="#">
+                <span>&larr;</span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">
+                <span>&rarr;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>

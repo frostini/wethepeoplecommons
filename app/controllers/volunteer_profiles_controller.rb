@@ -1,5 +1,11 @@
 class VolunteerProfilesController < ApplicationController
 
+  def index
+  end
+
+  def show
+  end
+  
   def new
     if params[:visitor_id].present?
       @visitor = Visitor.find_by_id(params[:visitor_id])
@@ -24,6 +30,9 @@ class VolunteerProfilesController < ApplicationController
         # do some skill mapping
         skills = Skill.where(id: params[:volunteer][:skills].split(','))
         profile.skills << skills
+
+        UserMailer.send_volunteer_confirmation(profile.id).delideliver_now
+
         flash[:success] = "Thanks signing up! Please expect an email from us soon!"
         redirect_to :back
       end
