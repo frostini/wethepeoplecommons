@@ -119,22 +119,26 @@
         </div>
     </div>
     <div class="row mt48">
+      <% if current_user.present? && current_user == request.user && request.persisted? %>
         <div class="col-sm-3 col-sm-offset-3 mr10">
-          <%= button_tag type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." } do %>
-            <span class="btn__text"><%= button_text %></span>
-          <% end %>
-        </div>
-        <div class="col-sm-3">
           <button class="btn btn--sm bg--googleplus" style="width:100%;">
-            <%= link_to toggle_activation_request_path(@request),
+            <%= link_to toggle_activation_request_path(request),
             method: :put,
             data: {confirm: "Are you sure you want to update the status of this request?"} do %>
-              <span class="btn__text">
-                <%= @request.is_active? ? "Archieve Request" : "Reactivate Request" %>
-              </span>
+            <span class="btn__text">
+              <%= @request.is_active? ? "Archieve Request" : "Reactivate Request" %>
+            </span>
             <% end %>
           </button>
         </div>
+        <div class="col-sm-3">
+      <% else %>
+        <div class="col-sm-4 col-sm-offset-4">
+      <% end %>
+        <%= button_tag type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." } do %>
+          <span class="btn__text"><%= button_text %></span>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
