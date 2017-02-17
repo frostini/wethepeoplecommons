@@ -2,14 +2,13 @@ class UsersController < ApplicationController
   before_filter :authorize, only: [:profile, :update]
 
   def profile
-    @user             = current_user
     @skills           = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
     @volunteer_skills = if current_user.volunteer_profile.present?
       current_user.volunteer_profile.skills.pluck(:id).to_json.html_safe
     else
       [].to_json
     end
-
+    @requests         = current_user.requests
     @requested_skills = if current_user.requests.present?
       current_user.requests.first.skills.pluck(:id).to_json.html_safe
     else

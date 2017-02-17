@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :requests, except: [:destroy, :edit]
+  resources :requests, except: [:destroy]
 
   resources :volunteer_profiles, except: [:destroy, :edit], :path => "volunteer"
 

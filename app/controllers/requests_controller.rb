@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_filter :set_request_context, only: [:show, :edit, :update]
 
   def index
     @requests = Request.includes(:user, :skills)
@@ -7,11 +8,6 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request  = Request.find_by_id(params[:id])
-    unless @request.present?
-      flash[:error] = "Sorry, volunteer not found!"
-      redirect_to :back
-    end
   end
 
   def new
@@ -58,19 +54,33 @@ class RequestsController < ApplicationController
     end
   end
 
+  def edit
+    @skills           = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
+    @requested_skills = @request.skills.pluck(:id).to_json.html_safe
+  end
+
   def update
-    profile = current_user.volunteer_profile
-    profile.update(params.require(:volunteer).permit(:interest, :bio))
+    @request.update(params.require(:request).permit(:description, :purpose, :urgency))
 
     skills = Skill.where(id: params[:volunteer][:skills].split(',')).sort
 
-    if profile.skills.sort != skills
-      skills.delete(profile.skills - skills)
-      profile.skills << (skills - profile.skills)
+    if @request.skills.sort != skills
+      skills.delete(@request.skills - skills)
+      @request.skills << (skills - @request.skills)
     end
 
     flash[:success] = "Your request has been updated!"
     redirect_to :profile_users_path
+  end
+
+  private
+
+  def set_request_context
+    @request = Request.find_by_id(params[:id])
+    if @request.nil?
+      flash[:error] = "Sorry, request not found!"
+      redirect_to :back and return
+    end
   end
 
 end

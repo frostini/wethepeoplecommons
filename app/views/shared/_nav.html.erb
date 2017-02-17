@@ -16,7 +16,7 @@
       <ul class="menu nav--text">
         <li><%= link_to "Home", root_path %></li>
         <li>
-          <%= link_to "Get Help", new_request_path %>
+          <a>Get Help</a>
           <ul>
             <li>
               <%= link_to "New Request", new_request_path %>
@@ -27,10 +27,14 @@
           </ul>
         </li>
         <li>
-          <%=link_to "Volunteer", new_volunteer_profile_path %>
+          <a>Volunteer</a>
           <ul>
             <li>
-              <%= link_to "New Registration", new_volunteer_profile_path %>
+              <% if current_user.volunteer_profile.present? %>
+                <%= link_to "View Profile", profiles_user_path %>
+              <% else %>
+                <%= link_to "New Registration", new_volunteer_profile_path %>
+              <% end %>
             </li>
             <li>
               <%= link_to "Browse Requests", requests_path %>
