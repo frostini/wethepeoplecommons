@@ -56,10 +56,12 @@
                 Edit Request Detail ->
               <% end %>
             </p>
-          <% else %>
+          <% elsif current_user.present? %>
             <a href="mailto:<%= @request.user.email %>" class="btn btn--xs btn--secondary">
               <i class="fa fa-envelope-o mr5"></i><span class="btn__text">  Contact <%= @request.user.first_name.titleize %></span>
             </a>
+          <% else %>
+            <%= render "shared/login_modal", title: @request.user.first_name.titleize %>
           <% end %>
           <hr>
         </div>
