@@ -11,9 +11,10 @@ class SessionsController < ApplicationController
       # logged in when they navigate around our website.
       session[:user_id] = user.id
       flash[:success] = "Welcome back!"
-      redirect_to user_path(user)
+      redirect_to profile_users_path
     else
     # If user's login doesn't work, send them back to the login form.
+      flash[:error] = "Sorry, your email or password is not correct."
       redirect_to :back
     end
   end

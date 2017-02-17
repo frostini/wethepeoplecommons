@@ -1,0 +1,127 @@
+<div class="container">
+  <%= form_tag requests_path, method: :post, class: "form--square" do |f| %>
+    <% if show_profile %>
+      <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <div class="elements--title">
+                <h4>Personal Information</h4>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label>Email</label>
+            <%= email_field_tag "user[email]", current_user.try(:email) || @visitor.try(:email), placeholder: "yours@needhelp.com", required: true %>
+          </div>
+          <% unless current_user.nil? %>
+            <div class="col-sm-6">
+              <label>Password</label>
+              <%= password_field_tag "user[password]", nil, placeholder: "min 8 characters", minlength: 8, maxlength: 20, required: true %>
+            </div>
+          <% end %>
+          <div class="col-sm-6">
+            <label>First Name:</label>
+            <%= text_field_tag "user[first_name]", current_user.try(:first_name), required: true, placeholder: "First Name" %>
+          </div>
+          <div class="col-sm-6">
+            <label>Last Name:</label>
+            <%= text_field_tag "user[last_name]", current_user.try(:last_name), required: true, placeholder: "Last Name" %>
+          </div>
+          <div class="col-sm-6">
+              <label>Phone Number:</label>
+              <%= phone_field_tag "user[phone]", current_user.try(:phone), placeholder: "Example: (434) 345-3342" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-sm-offset-1">
+          <hr>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+              <div class="elements--title">
+                  <h4>Organization Information (optional)</h4>
+              </div>
+              <div class="col-sm-6">
+                  <label>Organization Name:</label>
+                  <%= text_field_tag "organization[name]", request.organization.try(:name), placeholder: "Your org's name" %>
+              </div>
+              <div class="col-sm-6">
+                  <label>URL:</label>
+                  <%= text_field_tag "organization[url]", request.organization.try(:url), placeholder: "http://wethepeoplecommons.org" %>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-10 col-sm-offset-1">
+          <hr>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+              <h4>Request Information</h4>
+          </div>
+          <div class="col-xs-12">
+              <label>Description of Initiative or Project:</label>
+              <%= text_area_tag "request[description]", request.description, size: "25x5", placeholder: "Enter project description...", required: true %>
+          </div>
+          <div class="col-xs-12">
+              <label>Purpose of initiative or project:</label>
+              <%= text_area_tag "request[purpose]", request.purpose, size: "25x3", placeholder: "Enter project purpose...", required: true %>
+          </div>
+          <div class="col-xs-12">
+              <label>What sort of help do you need ?</label>
+              <%= text_area_tag "request[skills]", nil, size: "25x2", placeholder: "Select up to 4 Skills", required: true, id: "select-request" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-10 col-sm-offset-1">
+          <hr>
+      </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 class="">Level of urgency</h4>
+                </div>
+                <div class="col-xs-4">
+                    <div class="input-radio <%= request.urgency == 'ASAP' ? 'checked' : '' %>">
+                        <div class="inner"></div>
+                        <%= radio_button_tag "request[urgency]", "ASAP" %>
+                    </div>
+                    <label>ASAP</label>
+                </div>
+                <div class="col-xs-4">
+                    <div class="input-radio <%= request.urgency == 'Soon' ? 'checked' : '' %>">
+                        <div class="inner"></div>
+                        <%= radio_button_tag "request[urgency]", "Soon" %>
+                    </div>
+                    <label>Soon</label>
+                </div>
+                <div class="col-xs-4">
+                    <div class="input-radio <%= request.urgency == 'Eventually' ? 'checked' : '' %>">
+                        <div class="inner"></div>
+                        <%= radio_button_tag "request[urgency]", "Eventually" %>
+                    </div>
+                    <label>Eventually</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt48">
+        <div class="col-sm-4 col-sm-offset-4">
+            <%= button_tag button_text, type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." }%>
+        </div>
+    </div>
+  <% end %>
+</div>

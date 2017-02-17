@@ -13,7 +13,9 @@
   </div>
 </section>
 
-<%= render "form", volunteer: VolunteerProfile.new, method: :post, url: volunteer_profiles_path, button_text: "Create Profile" %>
+<section class="elements-forms">
+  <%= render "form", volunteer: VolunteerProfile.new, method: :post, url: volunteer_profiles_path, button_text: "Create Profile", show_profile: current_user.nil? %>
+</section>
 
 
 
@@ -22,7 +24,7 @@
     $(document).ready(function() {
       var $select;
       var options = JSON.parse('<%= @skills %>');
-      $select = $('#select-to').selectize({
+      $select = $('#select-volunteer').selectize({
         maxItems: 6,
         searchField: "name",
         labelField: 'name',

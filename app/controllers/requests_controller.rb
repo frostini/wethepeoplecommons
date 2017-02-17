@@ -15,20 +15,21 @@ class RequestsController < ApplicationController
   end
 
   def new
-    if params[:visitor_id].present?
-      @visitor = Visitor.find_by_id(params[:visitor_id])
-    end
-
+    @visitor = Visitor.find_by_id(params[:visitor_id])
     @skills  = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
   end
 
   def create
     begin
       ActiveRecord::Base.transaction do
-        visitor = Visitor.find_by_email(params[:user][:email])
-        user    = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :phone))
-        user.visitor_id = visitor.id if visitor.present?
-        user.save!
+        if current_user.nil?
+          visitor = Visitor.find_by_email(params[:user][:email])
+          user    = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :phone))
+          user.visitor_id = visitor.id if visitor.present?
+          user.save!
+        else
+          user = current_user
+        end
 
         organization = if params[:organization].present?
           org = Organization.new(params.require(:organization).permit(:name))
@@ -55,6 +56,21 @@ class RequestsController < ApplicationController
       flash[:error] = "Sorry #{e.message}"
       redirect_to :back
     end
+  end
+
+  def update
+    profile = current_user.volunteer_profile
+    profile.update(params.require(:volunteer).permit(:interest, :bio))
+
+    skills = Skill.where(id: params[:volunteer][:skills].split(',')).sort
+
+    if profile.skills.sort != skills
+      skills.delete(profile.skills - skills)
+      profile.skills << (skills - profile.skills)
+    end
+
+    flash[:success] = "Your request has been updated!"
+    redirect_to :profile_users_path
   end
 
 end

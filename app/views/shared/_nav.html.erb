@@ -45,7 +45,20 @@
         </li>
       </ul>
     </div>
-    <div class="nav-module right ">
+    <div class="nav-module right">
+      <% if current_user.present? %>
+        <%= link_to logout_path, class:"btn btn--xs" do %>
+          <span class="btn__text">
+            Logout
+          </span>
+        <% end %>
+      <% else %>
+        <%= link_to login_path, class:"btn btn--xs" do %>
+          <span class="btn__text">
+            Login
+          </span>
+        <% end %>
+      <% end %>
       <a class="btn btn--xs btn--primary dbox-donation-button" href="https://donorbox.org/wethepeoplecommons?recurring=true">
         <span class="btn__text">
           Donate

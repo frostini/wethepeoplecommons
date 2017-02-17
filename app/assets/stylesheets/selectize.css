@@ -200,9 +200,11 @@
 }
 
 .selectize-control.multi .selectize-input>div {
+    font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
     cursor: pointer;
     margin: 0 3px 3px 0;
-    padding: 1px 3px;
+    padding: 5px;
+    font-size: 14px;
     background: #425cbb;
     color: #ffffff;
     border: 0 solid rgba(0, 0, 0, 0);

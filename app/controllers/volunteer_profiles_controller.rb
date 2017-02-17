@@ -1,4 +1,5 @@
 class VolunteerProfilesController < ApplicationController
+  before_filter :authorize, only: [:update]
 
   def index
     @profiles = VolunteerProfile.includes(:user, :skills)
@@ -46,5 +47,20 @@ class VolunteerProfilesController < ApplicationController
       flash[:error] = "Sorry #{e.message}"
       redirect_to :back
     end
+  end
+
+  def update
+    profile = current_user.volunteer_profile
+    profile.update(params.require(:volunteer).permit(:interest, :bio))
+
+    skills = Skill.where(id: params[:volunteer][:skills].split(',')).sort
+
+    if profile.skills.sort != skills
+      skills.delete(profile.skills - skills)
+      profile.skills << (skills - profile.skills)
+    end
+
+    flash[:success] = "Your profile has been updated!"
+    redirect_to :profile_users_path
   end
 end

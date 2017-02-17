@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def prettify_name
-    self.first_name = first_name.split(' ').titleize.join(' ')
-    self.last_name = last_name.split(' ').titleize.join(' ')
+    self.first_name = first_name.split(' ').each(&:titleize).join(' ')
+    self.last_name = last_name.split(' ').each(&:titleize).join(' ')
   end
 end

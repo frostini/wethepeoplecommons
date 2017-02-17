@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
-  before_filter :authorize, only: [:show, :update]
+  before_filter :authorize, only: [:profile, :update]
 
-  def show
-    @user = current_user
+  def profile
+    @user             = current_user
+    @skills           = Skill.all.map{|s| {id: s.id, name: s.name}}.to_json.html_safe
+    @volunteer_skills = if current_user.volunteer_profile.present?
+      current_user.volunteer_profile.skills.pluck(:id).to_json.html_safe
+    else
+      [].to_json
+    end
+
+    @requested_skills = if current_user.requests.present?
+      current_user.requests.first.skills.pluck(:id).to_json.html_safe
+    else
+      [].to_json
+    end
   end
 
   def new
@@ -16,8 +28,8 @@ class UsersController < ApplicationController
       # Save the user id inside the browser cookie. This is how we keep the user
       # logged in when they navigate around our website.
       session[:user_id] = user.id
-      flash[:success] = "Welcome back!"
-      redirect_to user_path(user)
+      flash[:success] = "Thanks for signing up!"
+      redirect_to profile_users_path
     else
     # If user's login doesn't work, send them back to the login form.
       redirect_to :back

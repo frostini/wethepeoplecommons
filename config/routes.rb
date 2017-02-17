@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :visitors, only: [:create]
-  resources :users, only: [:new, :show, :create, :update]
+  resources :users, only: [:new, :create, :update] do
+    collection do
+      get 'profile'
+    end
+  end
 
-  resources :requests, only: [:create, :index, :show, :new]
+  resources :requests, except: [:destroy, :edit]
 
-  resources :volunteer_profiles, only: [:create, :index, :show, :new], :path => "volunteer"
+  resources :volunteer_profiles, except: [:destroy, :edit], :path => "volunteer"
 
   # Example of regular route:
 
