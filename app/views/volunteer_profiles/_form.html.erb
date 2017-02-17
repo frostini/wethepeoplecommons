@@ -13,7 +13,7 @@
             <label>Email</label>
             <%= email_field_tag "user[email]", current_user.try(:email) || @visitor.try(:email), placeholder: "yours@needhelp.com", required: true %>
           </div>
-          <% unless current_user.nil? %>
+          <% if current_user.nil? %>
             <div class="col-sm-6">
               <label>Password</label>
               <%= password_field_tag "user[password]", nil, placeholder: "min 8 characters", minlength: 8, maxlength: 20, required: true %>
@@ -59,7 +59,7 @@
               <div class="col-xs-12">
                 <label>Can you tell us a bit about the skills you'd like to volunteer ?</label>
 
-                <%= text_area_tag "request[skills]", nil, size: "25x2", placeholder: "Select up to 4 Skills", required: true, id: "select-volunteer" %>
+                <%= text_area_tag "volunteer[skills]", nil, size: "25x2", placeholder: "Select up to 4 Skills", required: true, id: "select-volunteer" %>
               </div>
             </div>
           </div>

@@ -15,8 +15,17 @@
     </div>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-xs-12 text-center">
-        <%= render partial: "request_modal" %>
-        <%= render partial: "volunteer_modal" %>
+        <% if current_user.nil? %>
+          <%= render partial: "request_modal" %>
+          <%= render partial: "volunteer_modal" %>
+        <% else %>
+          <%= link_to new_request_path, class: "btn btn--primary" do %>
+            <span class="btn__text">Get Help</span>
+          <% end %>
+          <%= link_to new_volunteer_profile_path, class: "btn btn--primary" do %>
+            <span class="btn__text">Volunteer</span>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="row mt48">

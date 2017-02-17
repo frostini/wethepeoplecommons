@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :requests, except: [:destroy]
+  resources :requests, except: [:destroy] do
+    member do
+      put 'toggle_activation'
+    end
+  end
 
   resources :volunteer_profiles, except: [:destroy, :edit], :path => "volunteer"
 

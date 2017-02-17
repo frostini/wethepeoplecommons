@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_tag requests_path, method: :post, class: "form--square" do |f| %>
+  <%= form_tag url, method: method, class: "form--square" do |f| %>
     <% if show_profile %>
       <div class="row">
       <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
@@ -119,8 +119,21 @@
         </div>
     </div>
     <div class="row mt48">
-        <div class="col-sm-4 col-sm-offset-4">
-            <%= button_tag button_text, type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." }%>
+        <div class="col-sm-3 col-sm-offset-3 mr10">
+          <%= button_tag type: "submit", class: "btn btn--primary", data: { disable_with: "Processing..." } do %>
+            <span class="btn__text"><%= button_text %></span>
+          <% end %>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn--sm bg--googleplus" style="width:100%;">
+            <%= link_to toggle_activation_request_path(@request),
+            method: :put,
+            data: {confirm: "Are you sure you want to update the status of this request?"} do %>
+              <span class="btn__text">
+                <%= @request.is_active? ? "Archieve Request" : "Reactivate Request" %>
+              </span>
+            <% end %>
+          </button>
         </div>
     </div>
   <% end %>

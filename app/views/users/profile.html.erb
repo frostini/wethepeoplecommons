@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-sm-8">
               <% if current_user.volunteer_profile.present? %>
-                <%= render "volunteer_profiles/form", volunteer: current_user.volunteer_profile, method: :put, url: volunteer_profile_path(id: current_user.volunteer_profile.id), button_text: "Update Profile", show_profile: true %>
+                <%= render "volunteer_profiles/form", volunteer: current_user.volunteer_profile, method: :put, url: volunteer_profile_path(current_user.volunteer_profile), button_text: "Update Profile", show_profile: true %>
               <% else %>
                 <div class="container">
                   <%= form_for current_user, method: :put, class: "form--square" do |f| %>
@@ -52,6 +52,12 @@
                         </div>
                       </div>
                     </div> <!-- end div row -->
+
+                    <div class="row mt48">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <%= f.button "Update", type: "submit", class: "btn btn--primary", data: { disable_with: "Updating..." }%>
+                        </div>
+                    </div>
                   <% end %> <!-- end form_for -->
                 </div> <!-- end div container -->
               <% end %> <!-- end if profile.present? -->
@@ -69,7 +75,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-              <% if current_user.requests.nil? %>
+              <% if current_user.requests.empty? %>
                 <p class="mt10">
                   You currently do not have any requests created.<br /><br />Need help with your social-good organization or causes?<br />You can start a new request <%= link_to "here", new_request_path %>.
                 </p>

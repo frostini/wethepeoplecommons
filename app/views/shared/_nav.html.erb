@@ -14,7 +14,16 @@
     </div>
     <div class="nav-module menu-module left">
       <ul class="menu nav--text">
-        <li><%= link_to "Home", root_path %></li>
+        <li>
+          <%= link_to "Home", root_path %>
+          <% if current_user.present? %>
+          <ul>
+            <li>
+              <%= link_to "Profile", profile_users_path %>
+            </li>
+          </ul>
+          <% end %>
+        </li>
         <li>
           <a>Get Help</a>
           <ul>
@@ -30,8 +39,8 @@
           <a>Volunteer</a>
           <ul>
             <li>
-              <% if current_user.volunteer_profile.present? %>
-                <%= link_to "View Profile", profiles_user_path %>
+              <% if current_user.try(:volunteer_profile).present? %>
+                <%= link_to "View My Profile", profile_users_path %>
               <% else %>
                 <%= link_to "New Registration", new_volunteer_profile_path %>
               <% end %>

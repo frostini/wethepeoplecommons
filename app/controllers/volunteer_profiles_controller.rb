@@ -50,17 +50,20 @@ class VolunteerProfilesController < ApplicationController
   end
 
   def update
-    profile = current_user.volunteer_profile
+    user = current_user
+    user.update(params.require(:user).permit(:email, :first_name, :last_name, :phone))
+
+    profile = user.volunteer_profile
     profile.update(params.require(:volunteer).permit(:interest, :bio))
 
     skills = Skill.where(id: params[:volunteer][:skills].split(',')).sort
 
     if profile.skills.sort != skills
-      skills.delete(profile.skills - skills)
+      profile.skills.delete(profile.skills - skills)
       profile.skills << (skills - profile.skills)
     end
 
     flash[:success] = "Your profile has been updated!"
-    redirect_to :profile_users_path
+    redirect_to profile_users_path
   end
 end

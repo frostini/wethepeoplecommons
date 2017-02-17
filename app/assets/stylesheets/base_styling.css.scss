@@ -4179,7 +4179,8 @@ label {
   margin: 0;
   margin-left: 2.6em;
 }
-label + input {
+label + input,
+label + textarea {
   margin-top: 0.8125em;
 }
 button {
@@ -8083,7 +8084,7 @@ section[class*='elements-'] hr + .row {
     margin-bottom: 1.625em;
   }
 }
-.elements-forms form input {
+form input {
   margin-bottom: 1.625em;
 }
 .elements-forms form > .row {

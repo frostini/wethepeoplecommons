@@ -1,8 +1,9 @@
 class RequestsController < ApplicationController
-  before_filter :set_request_context, only: [:show, :edit, :update]
+  before_filter :set_request_context, except: [:index, :new, :create]
+  before_filter :verify_eligibility, only: [:edit, :update, :deactivate]
 
   def index
-    @requests = Request.includes(:user, :skills)
+    @requests = Request.active.includes(:user, :skills)
     @skills   = Skill.joins(skill_joins: :request).merge(Request.active)
     @urgencies = @requests.pluck('distinct urgency')
   end
@@ -61,16 +62,28 @@ class RequestsController < ApplicationController
 
   def update
     @request.update(params.require(:request).permit(:description, :purpose, :urgency))
+    @request.update(is_active: true)
+    org = @request.organization
+    org.update(params.require(:organization).permit(:name))
+    org.url = scrub_url(params.require(:organization).permit(:url)[:url])
+    org.save
 
-    skills = Skill.where(id: params[:volunteer][:skills].split(',')).sort
+    skills = Skill.where(id: params[:request][:skills].split(',')).sort
 
     if @request.skills.sort != skills
-      skills.delete(@request.skills - skills)
+      @request.skills.delete(@request.skills - skills)
       @request.skills << (skills - @request.skills)
     end
 
     flash[:success] = "Your request has been updated!"
-    redirect_to :profile_users_path
+    redirect_to edit_request_path(@request)
+  end
+
+  def toggle_activation
+    prev_status = @request.is_active
+    @request.update(is_active: !prev_status)
+    flash[:success] = "Successfully updated the status of this request."
+    redirect_to edit_request_path(@request)
   end
 
   private
@@ -78,6 +91,13 @@ class RequestsController < ApplicationController
   def set_request_context
     @request = Request.find_by_id(params[:id])
     if @request.nil?
+      flash[:error] = "Sorry, request not found!"
+      redirect_to :back and return
+    end
+  end
+
+  def verify_eligibility
+    if current_user != @request.user
       flash[:error] = "Sorry, request not found!"
       redirect_to :back and return
     end

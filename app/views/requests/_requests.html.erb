@@ -3,6 +3,13 @@
     <%= link_to request_path(request), class: "post-link" do %>
     <h4><%= truncate(request.purpose, length: 100, separator: ' ') %></h4>
     <% end %>
+    <% if !request.is_active? && for_profile %>
+      <div class="blog-item__author">
+        <div class="btn btn--xs bg--googleplus">
+          <span class="btn__text">Request is inactive</span>
+        </div>
+      </div>
+    <% end %>
     <div class="blog-item__author">
       <% if for_profile %>
         <span class="h6">created on <%= request.created_at.to_date %></span>
@@ -12,6 +19,7 @@
       <% end %>
     </div>
     <div class="blog-item__author">
+      <span><em>Seeking Skills:</em></span>
       <ul class="tag-cloud">
         <% request.skills.each do |skill| %>
         <li>
@@ -28,7 +36,7 @@
       </ul>
     </div>
     <p>
-      <%= truncate(request.description, length: 500, separator: ' ') %>
+      <%= truncate(request.description, length: 280, separator: ' ') %>
     </p>
     <p class="mt15">
       <%= link_to request_path(request) do %>
