@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)http://www.herokucdn.com/error-pages/no-such-app.html -->
+<!-- saved from url=(0058)http://www.herokucdn.com/error-pages/maintenance-mode.html -->
 <html>
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
-  <title>No such page | WeThePeople Commons </title>
+  <title>Under Maintainance | WeThePeople Commons </title>
   <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
   <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
@@ -38,20 +38,14 @@
       flex-direction: column;
       align-items: center;
       padding: 0px 20px;
-      max-width: 500px;
-      font-size: 16px;
-      color: #47494E;
-    }
-
-    .message a,
-    .message a:active,
-    .message a:visited {
-      color: #47494E;
+      max-width: 450px;
     }
 
     .message__title {
       font-size: 22px;
       font-weight: 100;
+      margin-top: 15px;
+      color: #47494E;
       margin-bottom: 8px;
     }
 
@@ -64,13 +58,28 @@
       margin-bottom: 4px;
     }
 
+    .btn {
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #7F828B;
+      border: 1px solid #7F828B;
+    }
+
+    .hk-logo,
+    .app-icon {
+      fill: #DBE1EC;
+    }
+
     .info {
       fill: #9FABBC;
     }
 
     body.friendly {
-      background: -webkit-linear-gradient(-45deg, #425cbb 0%, #F8F8F8 100%);
-      background: linear-gradient(135deg, #425cbb 0%, #F8F8F8 100%);
+      background: -webkit-linear-gradient(-45deg, #8363a1 0%, #74a8c3 100%);
+      background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);
     }
 
     body.friendly .message__title {
@@ -106,25 +115,16 @@
       left: 12px;
       bottom: 12px;
     }
-
-    .site-link {
-      margin-top: 20px;
-    }
-
-    .site-link a {
-      text-decoration: none;
-    }
   </style>
   <!--<base target="_parent">-->
   <base href="." target="_parent"> </head>
 
-<body class="friendly">
+<body>
   <div class="spacer"></div>
-  <div class="message">
-    <div class="message__title"> Sorry nothing is here, yet. </div>
-    <span>Click <a onclick="history.back(); return false;" href="#">here</a> to return to the previous page or go back to our <a href="/">homepage</a>.</span>
-    <div class="site-link"><a href="/">WeThePeopleCommons.org</a></div>
-
+  <div class="message"> <svg width="49" height="51" xmlns="http://www.w3.org/2000/svg"><path d="M3.9468 10.0288L20.5548.995c2.4433-1.3267 5.45-1.3267 7.8936 0l16.6078 9.0338C47.4966 11.3585 49 13.8102 49 16.4666V34.534c0 2.6537-1.5034 5.1082-3.9438 6.438l-16.6078 9.0307c-2.4435 1.3297-5.4503 1.3297-7.8937 0L3.9467 40.972C1.5035 39.642 0 37.1876 0 34.534V16.4667c0-2.6564 1.5034-5.108 3.9468-6.4378z" class="app-icon" fill-rule="evenodd"></path></svg>
+    <div class="message__title"> Offline for maintenance </div>
+    <p> WeThePeople Commons is undergoing maintenance right now. </p>
+    <p> Thanks for your interest and we will be back in a beep! </p>
   </div>
 </body>
 

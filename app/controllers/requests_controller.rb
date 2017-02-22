@@ -45,7 +45,7 @@ class RequestsController < ApplicationController
         request.skills << skills
 
         UserMailer.send_request_confirmation(request.id).deliver_now
-
+        session[:user_id] = user.id
         flash[:success] = "Your request have been received! Please expect an email from us soon!"
         redirect_to :back
       end

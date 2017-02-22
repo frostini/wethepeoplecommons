@@ -40,6 +40,8 @@ class VolunteerProfilesController < ApplicationController
 
         UserMailer.send_volunteer_confirmation(profile.id).deliver_now
 
+        session[:user_id] = user.id
+
         flash[:success] = "Thanks signing up! Please expect an email from us soon!"
         redirect_to :back
       end

@@ -50,11 +50,11 @@
               </div>
               <div class="col-sm-12">
                 <label>Can you share a little about your self ? Experience volunteering or working with social causes ?</label>
-                <%= text_area_tag "volunteer[bio]", current_user.volunteer_profile.bio, placeholder: "I love doing...", required: true, size: "25x5" %>
+                <%= text_area_tag "volunteer[bio]", current_user.try(:volunteer_profile).try(:bio), placeholder: "I love doing...", required: true, size: "25x5" %>
               </div>
               <div class="col-sm-12">
                 <label>What kind of project would you like to help in ?</label>
-                <%= text_area_tag "volunteer[interest]", current_user.volunteer_profile.interest, placeholder: "I would love to help with...", required: true, size: "25x3" %>
+                <%= text_area_tag "volunteer[interest]", current_user.try(:volunteer_profile).try(:interest), placeholder: "I would love to help with...", required: true, size: "25x3" %>
               </div>
               <div class="col-xs-12">
                 <label>Can you tell us a bit about the skills you'd like to volunteer ?</label>
