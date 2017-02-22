@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def authorize
     unless current_user
       flash[:session] = "Sorry, please log in first for access!"
-      redirect_to root_path
+      redirect_to root_path and return
     end
   end
 end

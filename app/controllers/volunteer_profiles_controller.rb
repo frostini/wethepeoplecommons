@@ -15,6 +15,10 @@ class VolunteerProfilesController < ApplicationController
   end
 
   def new
+    if current_user.present? && current_user.volunteer_profile.present?
+      redirect_to profile_users_path and return
+    end
+
     if params[:visitor_id].present?
       @visitor = Visitor.find_by_id(params[:visitor_id])
     end
@@ -25,10 +29,14 @@ class VolunteerProfilesController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        visitor = Visitor.find_by_email(params[:user][:email])
-        user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :phone))
-        user.visitor_id = visitor.id if visitor.present?
-        user.save!
+        if current_user.nil?
+          visitor = Visitor.find_by_email(params[:user][:email])
+          user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :phone))
+          user.visitor_id = visitor.id if visitor.present?
+          user.save!
+        else
+          user = current_user
+        end
 
         profile = VolunteerProfile.new(params.require(:volunteer).permit(:interest, :bio))
         profile.user_id = user.id
@@ -42,8 +50,8 @@ class VolunteerProfilesController < ApplicationController
 
         session[:user_id] = user.id
 
-        flash[:success] = "Thanks signing up! Please expect an email from us soon!"
-        redirect_to :back
+        flash[:success] = "Thanks signing up! Now check out some of our requests!"
+        redirect_to :requests_path
       end
     rescue => e
       flash[:error] = "Sorry #{e.message}"

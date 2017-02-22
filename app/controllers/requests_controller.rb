@@ -46,8 +46,8 @@ class RequestsController < ApplicationController
 
         UserMailer.send_request_confirmation(request.id).deliver_now
         session[:user_id] = user.id
-        flash[:success] = "Your request have been received! Please expect an email from us soon!"
-        redirect_to :back
+        flash[:success] = "Your request was received! Now check out our awesome volunteers!"
+        redirect_to volunteer_profiles_path
       end
     rescue => e
       flash[:error] = "Sorry #{e.message}"
