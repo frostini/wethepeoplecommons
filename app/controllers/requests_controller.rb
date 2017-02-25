@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
   before_filter :verify_eligibility, only: [:edit, :update, :deactivate]
 
   def index
-    @requests = Request.active.includes(:user, :skills)
+    @requests = Request.active.includes(:user, :skills).order(:created_at)
     @skills   = Skill.joins(skill_joins: :request).merge(Request.active)
     @urgencies = @requests.pluck('distinct urgency')
   end

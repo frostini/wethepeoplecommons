@@ -25,10 +25,7 @@
             <h4><%= profile.user.name %></h4>
             <% end %>
             <div class="blog-item__author">
-              <span><em>interest</em></span>
-              <span class="h6"><%= truncate(profile.interest, length: 100, separator: ' ') %></span>
-            </div>
-            <div class="blog-item__author">
+              <span><em>Specialize in:</em></span>
               <ul class="tag-cloud">
                 <% profile.skills.each do |skill| %>
                 <li>
@@ -38,6 +35,10 @@
                 </li>
                 <% end %>
               </ul>
+            </div>
+            <div class="blog-item__author">
+              <span><em>interested in:</em></span>
+              <span class="h6"><%= truncate(profile.interest, length: 100, separator: ' ') %></span>
             </div>
             <p>
               <%= truncate(profile.bio, length: 500, separator: ' ') %>

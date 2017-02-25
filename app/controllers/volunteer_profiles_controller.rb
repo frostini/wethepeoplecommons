@@ -2,7 +2,7 @@ class VolunteerProfilesController < ApplicationController
   before_filter :authorize, only: [:update]
 
   def index
-    @profiles = VolunteerProfile.includes(:user, :skills)
+    @profiles = VolunteerProfile.includes(:user, :skills).order(:created_at)
     @skills   = Skill.joins(skill_joins: :volunteer_profile)
   end
 

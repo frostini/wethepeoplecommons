@@ -10,7 +10,7 @@
         </div>
       </div>
     <% end %>
-    <div class="blog-item__author">
+    <div>
       <% if for_profile %>
         <span class="h6">created on <%= request.created_at.to_date %></span>
       <% else %>
@@ -18,6 +18,15 @@
         <span class="h6"><%= request.user.name %> on <%= request.created_at.to_date %></span>
       <% end %>
     </div>
+    <% if request.organization.present? %>
+      <div class="blog-item__author">
+          <span><em>organization</em></span>
+          <span class="h6">
+            <%= request.organization.name %>,
+            <%= link_to request.organization.url, request.organization.url %>
+          </span>
+      </div>
+    <% end %>
     <div class="blog-item__author">
       <span><em>Seeking Skills:</em></span>
       <ul class="tag-cloud">
