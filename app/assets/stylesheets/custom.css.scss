@@ -283,3 +283,19 @@ nav .flash h5 {
   background: #F8F8F8;
   padding-top: 0;
 }
+
+@media (max-width: 400px) {
+  h1.declaration--text.declaration--text__home{
+    font-size: 2em !important;
+  }
+
+  span.supporting--text.home{
+    display: block;
+  }
+  .valueprop--text{
+    font-size: 1.2em;
+  }
+  .xs-mt5{
+    margin-top: 10px !important;
+  }
+}
