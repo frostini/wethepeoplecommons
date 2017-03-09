@@ -2,15 +2,15 @@
 
 <section class="imagebg height-100 cover cover-7" data-overlay="6">
   <div class="background-image-holder">
-    <%= image_tag("flag_background.jpg") %>
+    <%= image_tag("volunteers.jpg") %>
   </div>
   <div class="container pos-vertical-center">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1 text-center">
         <h1 class="declaration--text declaration--text__home">
-          WeThePeople<span class="supporting--text"> commons</span>
+          WeThePeople<span class="supporting--text home"> commons</span>
         </h1>
-        <h3>Helping Match Social-Good Organizations With Skilled Volunteers</h3>
+        <h3 class="valueprop--text">Helping Match Social-Good Organizations With Tech Industry Professionals</h3>
       </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
     </div>
     <div class="row mt48">
       <div class="col-sm-12 text-center">
-        <a href="#about_us" class="h5 text__underline scroll-to">Find Out More</a>
+        <a href="#about_us" class="h5 text__underline scroll-to" >Find Out More</a>
       </div>
     </div>
   </div>
@@ -42,9 +42,9 @@
 <section class="bg--primary height-80" id="about_us">
   <div class="container pos-vertical-center">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
         <h2>About Us</h2>
-        <p class="lead"> We were concerned with the current state of our country and wanted to do something about it. We wanted to help social movements and organizations combat regressive politics by contributing our skills in mobile and web development, design, marketing, and data science. We wanted to help good causes connect with good people to do good things. 
+        <p class="lead"><span class="declaration--text">WeThePeople</span><span class="supporting--text" style="font-size: 1.3em;"> commons</span> is a collective of tech industry professionals that have come together to volunteer our skills in support of social good organizations. We built this platform to make it as simple as possible for good causes to connect with good people to do great things.
         </p>
         <p class="lead mt10">Hence, <span class="declaration--text">WeThePeople</span> was born.</p>
       </div>
@@ -60,7 +60,7 @@
       </div>
   </div>
   <div class="col-md-6 col-md-push-6 col-sm-8 col-sm-push-4 text-center">
-    <h2>Our Process</h2>
+    <h2>Get Started</h2>
     <hr>
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
@@ -74,14 +74,14 @@
 
         <div class="mt30">
           <h4>Contribute Skills</h4>
-          <p>Whether you are a project manager, a designer or a developer, find causes you are passionate about and discover how your help can make a difference to both the organizations championing progress as well as the people's lives you are both working to improve.</p>
+          <p>Whether you are a project/product manager, marketer, designer or developer, find causes you are passionate about and discover how your help can make a difference to both the organizations championing progress as well as the people's lives you are both working to improve.</p>
           <%= render partial: "volunteer_modal" %>
           <hr>
         </div>
 
         <div class="mt30">
           <h4>Make a Difference</h4>
-          <p>Enjoy the exhilarating feeling of working for a greater cause. Join our community of good-doing, bad-asses and share in the joy of "stick it to the man and power to the people !"</p>
+          <p>Enjoy the exhilarating feeling of working for a greater cause. Join our community of good-doing, bad-asses and share in the joy of "sticking it to the man and giving power to the people !"</p>
           <%=link_to showcase_path, class: "btn btn--primary" do %>
             <span class="btn__text ">Showcase</span>
           <% end %>
@@ -92,7 +92,7 @@
     </div>
   </div>
 </section>
-<section class="height-50 bg--primary">
+<section class="height-60 bg--primary">
   <div class="container">
     <div class="col-xs-10 col-xs-offset-1 text-center">
       <h3>
